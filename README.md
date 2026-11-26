@@ -4,7 +4,7 @@
 > engineers that design, build, secure, test, deploy, and operate software.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](manifest.json)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](manifest.json)
 [![Phases](https://img.shields.io/badge/SDLC%20phases-11-orange.svg)](workflow/phases/)
 [![Tasks](https://img.shields.io/badge/task%20cards-108-orange.svg)](TASKS.md)
 [![Roles](https://img.shields.io/badge/agent%20roles-12-purple.svg)](agents/roles/)
@@ -31,6 +31,9 @@ The Engineering Manual fixes that. It turns software delivery into a
   developers, QA, security engineer, penetration tester, and more.
 - **Evidence is the only currency of completion.** A task is not done until its
   evidence is recorded.
+- **Agent memory stays current.** When Graphify is configured, agents query
+  the knowledge graph before editing and refresh it after every addition,
+  change, or fix — alongside the ledger, never instead of it.
 - **Humans approve** high-impact, irreversible, or out-of-scope actions —
   including all offensive security testing, which requires written
   authorization and a signed Rules of Engagement (`templates/roe.md`).

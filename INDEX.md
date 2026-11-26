@@ -34,6 +34,7 @@ The [task index](TASKS.md) lists generated task cards.
 | Security finding | [Vulnerability template](templates/vulnerability.md) |
 | Incident | [Incident response](standards/operations/incident-response.md) |
 | Release | [Release phase](workflow/phases/09-release/README.md) and [release checklist](checklists/release-readiness.md) |
+| Querying or refreshing agent memory (Graphify) | [Context ledger](agents/protocol/04-context-ledger.md) and [MEMORY.md](ledger-template/MEMORY.md) |
 
 ## Directory map
 

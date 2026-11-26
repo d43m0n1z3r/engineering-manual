@@ -9,6 +9,7 @@
 - [ ] The handoff packet is written, and the receiver has acknowledged it.
 - [ ] The assumptions, the known issues, and the debt are logged with IDs.
 - [ ] `STATE.md` is updated.
+- [ ] Agent memory updated: the Graphify graph refreshed (`graphify . --update` or the configured hook) when Graphify is configured — in addition to the ledger.
 
 ## 18.2 Code-change DoD
 - [ ] Acceptance criteria pass (positive, negative, abuse). [ ] Unit and integration tests are added or updated, and the coverage thresholds are met. [ ] SAST, SCA, and the secret scan show 0 new High or Critical. [ ] The input validation, the output encoding, the authZ, and the error handling are verified. [ ] The logging does not leak the sensitive data. [ ] The contract and the docs are updated. [ ] The migration is backward-compatible. [ ] The independent review is approved (G5). [ ] The CI is green.

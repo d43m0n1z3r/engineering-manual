@@ -7,3 +7,5 @@ Do not store credentials or sensitive production data in these files.
 Use restricted storage for vulnerability details and sensitive evidence.
 
 See the manual's agent protocol for lifecycle, evidence, and handoff rules.
+`MEMORY.md` defines how agents query and refresh the Graphify knowledge graph
+alongside the ledger.

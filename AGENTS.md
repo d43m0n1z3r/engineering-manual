@@ -19,6 +19,10 @@ Read this file and [INDEX.md](INDEX.md) before starting work.
 9. Protect personal and sensitive data.
 10. Maintain traceability from requirements through design, code, tests,
     findings, and releases.
+11. When the project uses Graphify, query the knowledge graph before editing
+    and refresh it after every addition, change, or fix (`graphify . --update`,
+    or the configured watch/hook) — in addition to, never instead of, the
+    ledger update.
 
 Read the full [non-negotiables](core/01-non-negotiables.md) and
 [evidence standard](core/04-evidence-standard.md) when they apply.
@@ -26,12 +30,15 @@ Read the full [non-negotiables](core/01-non-negotiables.md) and
 ## Start a task
 
 1. Read the project ledger: `STATE.md`, relevant assumptions, and handoffs.
+   Query the Graphify knowledge graph for relevant facts when it is
+   configured.
 2. Open the appropriate role card, task card, and source phase document.
 3. Instantiate the full task schema. Verify preconditions with evidence.
 4. Load applicable security controls, standards, gates, and templates.
    Read additional files when needed; do not guess omitted requirements.
 5. Execute within your assigned permission tier and scope.
-6. Record outputs, evidence, limitations, and decisions.
+6. Record outputs, evidence, limitations, and decisions. Refresh the
+   Graphify graph when configured.
 7. Request independent review and hand off the result.
 
 If required information or approval is missing, stop the dependent work and

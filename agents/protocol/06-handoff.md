@@ -13,5 +13,6 @@ A **handoff packet** (`HANDOFFS/{task_id}.md`) MUST contain:
 | Verification instructions | The exact commands to reproduce the validation |
 | Next steps | What the receiving agent should do first |
 | Open questions | Unresolved items needing an answer |
+| Agent memory | Graphify graph queried before work and refreshed after changes, when configured |
 
 The receiving agent MUST acknowledge and re-run at least the smoke verification before accepting. A handoff that cannot be reproduced is rejected.
