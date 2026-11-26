@@ -1,6 +1,9 @@
 {
   "source": "../manual.md",
   "original_copy": "source/manual.md",
+  "manual_version": "1.3.0",
+  "source_manual_sha256": "673b42f99b70319c8a1366c2178b39606d8302025eaac4f4443c19201acd0143",
+  "provenance_note": "source/manual.md is the frozen original generation input; this repository is a living manual and may diverge from it. Post-generation changes are tracked in CHANGELOG.md.",
   "section_files": [
     "agents/boot-sequence.md",
     "agents/human-authorities.md",

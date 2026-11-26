@@ -2,6 +2,9 @@
 
 **Purpose and why.** Systems and threats change. Without structured learning, quality decays and risk accumulates.
 
+**Roles.** Project Analyst (lead), Software Architect, Security Engineer, DevOps Engineer, QA Engineer, Technical Reviewer.
+**Skills.** Continuous improvement measurement, architecture review, security reassessment, performance optimization, and technical communication (Part 5: [Cat 4](../../../skills/04-software-engineering-principles.md), [Cat 9](../../../skills/09-system-design-and-architecture.md), [Cat 14](../../../skills/14-application-security.md), [Cat 21](../../../skills/21-software-testing-and-quality-assurance.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md), [Cat 23](../../../skills/23-technical-documentation-and-engineering-communication.md)).
+
 ### Tasks
 
 | ID | Task | How to execute | Outputs | Validation |

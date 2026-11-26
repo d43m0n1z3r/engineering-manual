@@ -3,6 +3,11 @@
 - Input: `../manual.md`
 - Output: `../engineering-manual-1.1.0`
 - Original preserved at: `source/manual.md`
+- Provenance: `source/manual.md` is the frozen original generation input
+  (`sha256:673b42f99b70319c8a1366c2178b39606d8302025eaac4f4443c19201acd0143`),
+  not a live mirror of this repository. Post-generation changes are tracked in
+  `CHANGELOG.md`; recovery from `source/manual.md` restores the generation
+  baseline only.
 - Task and role cards are derived copies of source tables.
 
 ## Counts

@@ -3,7 +3,7 @@
 **Purpose and why.** Defects in requirements are the most expensive to fix later. This phase turns an ambiguous need into a testable, prioritized, bounded definition, including security and privacy needs, so that downstream design is neither over- nor under-built.
 
 **Roles.** Project Analyst (lead), Software Architect (feasibility), Security Engineer (security and privacy requirements), Technical Reviewer.
-**Skills.** Requirements elicitation and analysis, domain modeling, risk analysis, privacy and regulatory awareness, technical writing (Part 5: cats 4, 9, 14, 23).
+**Skills.** Requirements elicitation and analysis, domain modeling, risk analysis, privacy and regulatory awareness, technical writing (Part 5: [Cat 4](../../../skills/04-software-engineering-principles.md), [Cat 9](../../../skills/09-system-design-and-architecture.md), [Cat 14](../../../skills/14-application-security.md), [Cat 23](../../../skills/23-technical-documentation-and-engineering-communication.md)).
 
 ### Tasks
 

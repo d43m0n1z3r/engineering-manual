@@ -1,0 +1,3934 @@
+{
+  "version": "1.3.0",
+  "generated_by": "scripts/build_task_registry.py",
+  "generated_from": "workflow/**/tasks/*.md plus curated orchestration metadata in this script",
+  "semantics": {
+    "depends_on": "hard task dependencies; a task is READY only when all listed tasks are VERIFIED",
+    "gate_required": "gates that must be approved before the task may be claimed",
+    "feeds_gates": "gates the task's verified output is submitted to; gate entry rules still apply",
+    "role": "primary accountable agent role (slug under agents/roles/)",
+    "roles": "agent roles involved in the phase",
+    "skills": "Part 5 category numbers; see skill_categories for files/titles",
+    "human_approval": "human approval required in addition to any gate, when stated by the manual"
+  },
+  "skill_categories": {
+    "1": {
+      "file": "skills/01-computer-science-fundamentals.md",
+      "title": "1. Computer Science Fundamentals"
+    },
+    "2": {
+      "file": "skills/02-programming-languages-and-paradigms.md",
+      "title": "2. Programming Languages and Paradigms"
+    },
+    "3": {
+      "file": "skills/03-data-structures-and-algorithms.md",
+      "title": "3. Data Structures and Algorithms"
+    },
+    "4": {
+      "file": "skills/04-software-engineering-principles.md",
+      "title": "4. Software Engineering Principles"
+    },
+    "5": {
+      "file": "skills/05-frontend-engineering.md",
+      "title": "5. Frontend Engineering"
+    },
+    "6": {
+      "file": "skills/06-backend-engineering.md",
+      "title": "6. Backend Engineering"
+    },
+    "7": {
+      "file": "skills/07-database-engineering.md",
+      "title": "7. Database Engineering"
+    },
+    "8": {
+      "file": "skills/08-api-and-integration-engineering.md",
+      "title": "8. API and Integration Engineering"
+    },
+    "9": {
+      "file": "skills/09-system-design-and-architecture.md",
+      "title": "9. System Design and Architecture"
+    },
+    "10": {
+      "file": "skills/10-operating-systems-and-linux.md",
+      "title": "10. Operating Systems and Linux"
+    },
+    "11": {
+      "file": "skills/11-networking-and-network-security.md",
+      "title": "11. Networking and Network Security"
+    },
+    "12": {
+      "file": "skills/12-cloud-and-infrastructure-engineering.md",
+      "title": "12. Cloud and Infrastructure Engineering"
+    },
+    "13": {
+      "file": "skills/13-devops-and-platform-engineering.md",
+      "title": "13. DevOps and Platform Engineering"
+    },
+    "14": {
+      "file": "skills/14-application-security.md",
+      "title": "14. Application Security"
+    },
+    "15": {
+      "file": "skills/15-web-and-api-penetration-testing.md",
+      "title": "15. Web and API Penetration Testing"
+    },
+    "16": {
+      "file": "skills/16-vulnerability-research-and-assessment.md",
+      "title": "16. Vulnerability Research and Assessment"
+    },
+    "17": {
+      "file": "skills/17-defensive-security-and-blue-team-operations.md",
+      "title": "17. Defensive Security and Blue Team Operations"
+    },
+    "18": {
+      "file": "skills/18-digital-forensics-and-incident-response.md",
+      "title": "18. Digital Forensics and Incident Response"
+    },
+    "19": {
+      "file": "skills/19-cryptography-and-identity-management.md",
+      "title": "19. Cryptography and Identity Management"
+    },
+    "20": {
+      "file": "skills/20-security-automation-and-devsecops.md",
+      "title": "20. Security Automation and DevSecOps"
+    },
+    "21": {
+      "file": "skills/21-software-testing-and-quality-assurance.md",
+      "title": "21. Software Testing and Quality Assurance"
+    },
+    "22": {
+      "file": "skills/22-performance-and-reliability-engineering.md",
+      "title": "22. Performance and Reliability Engineering"
+    },
+    "23": {
+      "file": "skills/23-technical-documentation-and-engineering-communication.md",
+      "title": "23. Technical Documentation and Engineering Communication"
+    }
+  },
+  "gates": {
+    "G0": {
+      "file": "workflow/gates/G0.md",
+      "title": "G0 — Authorization and Kickoff Gate",
+      "entry": "Sponsor request exists.",
+      "approval_authority": "Sponsor and Security Authority"
+    },
+    "G1": {
+      "file": "workflow/gates/G1.md",
+      "title": "G1 — Requirements Approval Gate",
+      "entry": "P01-T01..T09 are VERIFIED.",
+      "approval_authority": "Product Owner (plus the Security Authority for the REQ-S and Data Owner for the REQ-P)"
+    },
+    "G10": {
+      "file": "workflow/gates/G10.md",
+      "title": "G10 — Post-Release Verification Gate",
+      "entry": "The deployment completed.",
+      "approval_authority": "Operations Authority"
+    },
+    "G2": {
+      "file": "workflow/gates/G2.md",
+      "title": "G2 — Architecture Approval Gate",
+      "entry": "G1 passed. P02-T01..T06, T08 are VERIFIED.",
+      "approval_authority": "Engineering Authority"
+    },
+    "G3": {
+      "file": "workflow/gates/G3.md",
+      "title": "G3 — Threat Modeling Gate",
+      "entry": "The architecture draft with DFDs is available. P02-T07 is complete.",
+      "approval_authority": "Security Authority"
+    },
+    "G4": {
+      "file": "workflow/gates/G4.md",
+      "title": "G4 — Secure Design Gate",
+      "entry": "G2 and G3 passed. The API contracts, the data model, the auth design, and the UX flows for the increment are drafted.",
+      "approval_authority": "Engineering Authority and Security Authority"
+    },
+    "G5": {
+      "file": "workflow/gates/G5.md",
+      "title": "G5 — Code Review Gate (per change)",
+      "entry": "A PR is open with the template completed, and CI is green.",
+      "approval_authority": "Technical Reviewer (plus the Security Engineer for the sensitive paths)"
+    },
+    "G6": {
+      "file": "workflow/gates/G6.md",
+      "title": "G6 — Testing Gate",
+      "entry": "The release candidate is built from the main. All the P07 tasks are VERIFIED.",
+      "approval_authority": "Engineering Authority (on the QA recommendation)"
+    },
+    "G7": {
+      "file": "workflow/gates/G7.md",
+      "title": "G7 — Security Validation Gate",
+      "entry": "G3 passed. The build is deployed to the test environment. P06-T02..T13 are VERIFIED.",
+      "approval_authority": "Security Authority"
+    },
+    "G8": {
+      "file": "workflow/gates/G8.md",
+      "title": "G8 — Deployment Readiness Gate",
+      "entry": "G6 and G7 passed (or in progress for the same digest). P08 tasks are VERIFIED.",
+      "approval_authority": "Release Authority (with the Engineering Authority)"
+    },
+    "G9": {
+      "file": "workflow/gates/G9.md",
+      "title": "G9 — Production Release Gate",
+      "entry": "G6, G7, and G8 are valid for the same digest. The release readiness checklist is complete.",
+      "approval_authority": "Release Authority (the human)"
+    }
+  },
+  "tasks": [
+    {
+      "id": "X-KICKOFF-T01",
+      "name": "Establish project charter and authority",
+      "outputs": "Charter, Authority Register, Process Profile",
+      "validation": "Humans have signed. Every gate has a named approver. The process profile is recorded and deviations require an approved ADR.",
+      "card": "workflow/kickoff/tasks/X-KICKOFF-T01.md",
+      "source": "workflow/kickoff/README.md",
+      "phase": "X-KICKOFF",
+      "phase_dir": "workflow/kickoff",
+      "role": "orchestrator",
+      "roles": [
+        "orchestrator"
+      ],
+      "skills": [
+        4,
+        23
+      ],
+      "depends_on": [],
+      "gate_required": [],
+      "feeds_gates": [
+        "G0"
+      ],
+      "human_approval": "Sponsor and named gate approvers"
+    },
+    {
+      "id": "X-KICKOFF-T02",
+      "name": "Establish authorized environments and access",
+      "outputs": "Access Register",
+      "validation": "No shared or long-lived credentials. Reviewed by Security.",
+      "card": "workflow/kickoff/tasks/X-KICKOFF-T02.md",
+      "source": "workflow/kickoff/README.md",
+      "phase": "X-KICKOFF",
+      "phase_dir": "workflow/kickoff",
+      "role": "orchestrator",
+      "roles": [
+        "orchestrator"
+      ],
+      "skills": [
+        4,
+        23
+      ],
+      "depends_on": [],
+      "gate_required": [],
+      "feeds_gates": [
+        "G0"
+      ],
+      "human_approval": "Security review"
+    },
+    {
+      "id": "X-KICKOFF-T03",
+      "name": "Initialize project ledger",
+      "outputs": "Ledger",
+      "validation": "Files exist and are version controlled; `RESTRICTED/VULNS.md` is access-restricted; `graphify-out/` exists and is current when Graphify is configured.",
+      "card": "workflow/kickoff/tasks/X-KICKOFF-T03.md",
+      "source": "workflow/kickoff/README.md",
+      "phase": "X-KICKOFF",
+      "phase_dir": "workflow/kickoff",
+      "role": "orchestrator",
+      "roles": [
+        "orchestrator"
+      ],
+      "skills": [
+        4,
+        23
+      ],
+      "depends_on": [],
+      "gate_required": [],
+      "feeds_gates": [
+        "G0"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "X-KICKOFF-T04",
+      "name": "Establish test and offensive-security authorization baseline",
+      "outputs": "Authorization Baseline",
+      "validation": "Security Authority signature.",
+      "card": "workflow/kickoff/tasks/X-KICKOFF-T04.md",
+      "source": "workflow/kickoff/README.md",
+      "phase": "X-KICKOFF",
+      "phase_dir": "workflow/kickoff",
+      "role": "orchestrator",
+      "roles": [
+        "orchestrator"
+      ],
+      "skills": [
+        4,
+        23
+      ],
+      "depends_on": [],
+      "gate_required": [],
+      "feeds_gates": [
+        "G0"
+      ],
+      "human_approval": "Security Authority"
+    },
+    {
+      "id": "P01-T01",
+      "name": "Discovery and problem identification",
+      "outputs": "Problem Statement, KPI list, Open Questions Log",
+      "validation": "Each KPI is measurable (baseline, target, method). Blocking questions are answered or turned into logged assumptions.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T01.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T02",
+      "name": "Stakeholder analysis",
+      "outputs": "Stakeholder Register (with power/interest grid)",
+      "validation": "Every gate approver is present. Every user class maps to at least one persona.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T02.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T03",
+      "name": "Elicit business, functional, and non-functional requirements",
+      "outputs": "Requirements Catalogue (REQ-F, REQ-N)",
+      "validation": "No requirement is ambiguous (no \"fast\", \"secure\", \"user-friendly\" without metrics). Each is atomic, testable, and uniquely identified.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T03.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T04",
+      "name": "User stories, use cases, acceptance criteria",
+      "outputs": "Story Backlog, Use Case Specs, Acceptance Criteria",
+      "validation": "Each story has ≥ 1 positive and ≥ 1 negative criterion. Each criterion is automatable or has a documented manual procedure.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T04.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T05",
+      "name": "Constraints, assumptions, dependencies, scope boundaries",
+      "outputs": "Constraints and Assumptions Register, Scope Statement",
+      "validation": "Out-of-scope is explicit. Each assumption has an owner and expiry.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T05.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T06",
+      "name": "Feasibility and technical research",
+      "outputs": "Feasibility Report, Spike Results, Technology Shortlist",
+      "validation": "Every claim has a source or an experiment. No technology is chosen by popularity alone.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T06.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T07",
+      "name": "Risk identification",
+      "outputs": "Risk Register (`RISK-###`)",
+      "validation": "Top risks have owners and mitigations. High risks are reported to the human sponsor.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T07.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T08",
+      "name": "Initial security and privacy requirements",
+      "outputs": "Security and Privacy Requirements (REQ-S, REQ-P), Data Inventory, ASVS target level",
+      "validation": "Each REQ-S is testable. ASVS level is justified. Data inventory has an owner for each data class.",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T08.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "X-KICKOFF-T01",
+        "X-KICKOFF-T02",
+        "X-KICKOFF-T03",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P01-T09",
+      "name": "Compile Requirements Specification and Project Definition; seed the RTM",
+      "outputs": "Requirements Specification, Project Definition, RTM v0",
+      "validation": "Technical Reviewer completes the consistency check (no conflicting requirements, no orphan stories, and glossary defined).",
+      "card": "workflow/phases/01-discovery-requirements/tasks/P01-T09.md",
+      "source": "workflow/phases/01-discovery-requirements/README.md",
+      "phase": "P01",
+      "phase_dir": "workflow/phases/01-discovery-requirements",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        23
+      ],
+      "depends_on": [
+        "P01-T01",
+        "P01-T02",
+        "P01-T03",
+        "P01-T04",
+        "P01-T05",
+        "P01-T06",
+        "P01-T07",
+        "P01-T08"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [
+        "G1"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T01",
+      "name": "System decomposition and architectural style selection",
+      "outputs": "Context diagram, Style ADR",
+      "validation": "ADR lists ≥ 2 alternatives and trade-offs tied to NFRs.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T01.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T02",
+      "name": "Component architecture, service boundaries, DDD (where appropriate)",
+      "outputs": "Component diagram (C4 Level 2–3), Context Map, Module Interface Specs",
+      "validation": "Dependency graph has no cycles. Each module has a single clear responsibility.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T02.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T03",
+      "name": "Data flow, system interaction, and API architecture",
+      "outputs": "DFD set, API Architecture, Contract drafts",
+      "validation": "Every flow is traced to a requirement. Contracts validate with a linter.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T03.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T04",
+      "name": "Database, caching, messaging, and integration architecture",
+      "outputs": "Data Architecture, Messaging Design, Integration Design",
+      "validation": "Each data store has an owner and a failure behavior. Each integration has a failure-mode analysis.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T04.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T05",
+      "name": "Infrastructure, scalability, availability, failure handling, DR",
+      "outputs": "Infrastructure Architecture, FMEA, DR Plan outline",
+      "validation": "RTO and RPO are traceable to REQ-N. Every single point of failure is either removed or explicitly accepted by a human.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T05.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T06",
+      "name": "Security architecture",
+      "outputs": "Security Architecture, Control Map",
+      "validation": "Every REQ-S is mapped to ≥ 1 control. Critical assets have ≥ 2 independent controls.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T06.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T07",
+      "name": "Threat modeling and abuse-case analysis",
+      "outputs": "Threat Model (`THR-###`), Attack Surface Inventory, Residual Risk Register",
+      "validation": "All trust-boundary crossings have threats considered. Each High/Critical threat has a mitigation with a verification test ID.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T07.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09",
+        "P02-T03",
+        "P02-T06"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T08",
+      "name": "Architecture Decision Records",
+      "outputs": "ADR set (Part 12 template)",
+      "validation": "Reviewer confirms each is justified by an NFR or constraint.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T08.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P01-T09"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P02-T09",
+      "name": "Compile the Architecture Specification, then pass G2, G3, and G4 (design portion)",
+      "outputs": "System Architecture Specification",
+      "validation": "See gate criteria G2, G3, G4.",
+      "card": "workflow/phases/02-architecture/tasks/P02-T09.md",
+      "source": "workflow/phases/02-architecture/README.md",
+      "phase": "P02",
+      "phase_dir": "workflow/phases/02-architecture",
+      "role": "software-architect",
+      "roles": [
+        "software-architect",
+        "security-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        7,
+        8,
+        9,
+        12,
+        14,
+        19
+      ],
+      "depends_on": [
+        "P02-T01",
+        "P02-T02",
+        "P02-T03",
+        "P02-T04",
+        "P02-T05",
+        "P02-T06",
+        "P02-T07",
+        "P02-T08"
+      ],
+      "gate_required": [
+        "G1"
+      ],
+      "feeds_gates": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T01",
+      "name": "User research, information architecture",
+      "outputs": "Persona set, IA map",
+      "validation": "Each persona goal maps to a path in the IA.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T01.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "ui-ux-engineer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T02",
+      "name": "User flows, wireframes, prototypes",
+      "outputs": "Flow diagrams, wireframes, prototype",
+      "validation": "Every acceptance criterion in P01 has a screen and state.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T02.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "ui-ux-engineer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T03",
+      "name": "Design system and accessibility baseline",
+      "outputs": "Design System Spec, Accessibility Spec",
+      "validation": "Automated a11y checks pass. Manual keyboard and screen-reader check done on key flows.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T03.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "ui-ux-engineer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T04",
+      "name": "Frontend architecture and scaffolding",
+      "outputs": "Frontend scaffold, ADR",
+      "validation": "Build is reproducible. Lint, type-check, and format gates are enforced in CI.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T04.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T05",
+      "name": "Component-driven implementation",
+      "outputs": "Component library, stories, tests",
+      "validation": "Each component has a11y and interaction tests.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T05.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T06",
+      "name": "Forms, validation, API integration, error and loading states",
+      "outputs": "Integrated screens",
+      "validation": "Contract tests against the mock server and the real API. All error codes are handled.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T06.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T07",
+      "name": "Frontend security hardening",
+      "outputs": "Security config, tests",
+      "validation": "Security checklist (§19.3) complete.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T07.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T08",
+      "name": "Performance and compatibility",
+      "outputs": "Performance report, compat matrix",
+      "validation": "Budgets are met in CI. Compat tests are green on the matrix.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T08.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P03-T09",
+      "name": "Frontend verification and handoff",
+      "outputs": "Verified frontend plus docs",
+      "validation": "Gate G5 for each change. Part of G6.",
+      "card": "workflow/phases/03-ui-ux-frontend/tasks/P03-T09.md",
+      "source": "workflow/phases/03-ui-ux-frontend/README.md",
+      "phase": "P03",
+      "phase_dir": "workflow/phases/03-ui-ux-frontend",
+      "role": "frontend-developer",
+      "roles": [
+        "ui-ux-engineer",
+        "frontend-developer",
+        "security-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        5,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P03-T01",
+        "P03-T02",
+        "P03-T03",
+        "P03-T04",
+        "P03-T05",
+        "P03-T06",
+        "P03-T07",
+        "P03-T08"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [
+        "G6"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T01",
+      "name": "Runtime and framework selection, project scaffold",
+      "outputs": "Scaffold, ADR",
+      "validation": "Clean build. Architecture fitness test passes.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T01.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T02",
+      "name": "Contract-first API design and versioning",
+      "outputs": "Contract, mock server",
+      "validation": "Contract is linted. Frontend generates a client from it.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T02.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T03",
+      "name": "Authentication and session management",
+      "outputs": "AuthN module, tests",
+      "validation": "Negative tests: brute force, fixation, expired and tampered tokens, and enumeration.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T03.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T04",
+      "name": "Authorization (function-level and object-level)",
+      "outputs": "Policy module, AuthZ matrix",
+      "validation": "**AuthZ matrix test**: role × endpoint × object ownership, including cross-tenant. 100% of endpoints covered.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T04.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P04-T02",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T05",
+      "name": "Business logic: services, repositories, domain rules",
+      "outputs": "Implemented use cases",
+      "validation": "Unit and property tests for invariants. Abuse-case tests from the threat model.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T05.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T06",
+      "name": "Input validation, serialization, error handling, logging",
+      "outputs": "Validation layer, error handler, log schema",
+      "validation": "Fuzz and negative tests. Log review shows no sensitive fields.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T06.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T07",
+      "name": "Background jobs, queues, event processing, third-party integrations",
+      "outputs": "Job and integration modules",
+      "validation": "Failure-injection tests. Webhook forgery tests.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T07.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T08",
+      "name": "Abuse and platform protections: rate limiting, SSRF, uploads, resource exhaustion",
+      "outputs": "Protection modules and tests",
+      "validation": "Negative security tests pass.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T08.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T09",
+      "name": "Performance optimization and documentation",
+      "outputs": "Perf report, API docs",
+      "validation": "NFR targets met in load tests (Phase 07). Docs are generated from the contract.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T09.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P04-T10",
+      "name": "Backend verification and handoff",
+      "outputs": "Verified backend",
+      "validation": "G5 per change, then G6 and G7 contribution.",
+      "card": "workflow/phases/04-backend-api/tasks/P04-T10.md",
+      "source": "workflow/phases/04-backend-api/README.md",
+      "phase": "P04",
+      "phase_dir": "workflow/phases/04-backend-api",
+      "role": "backend-developer",
+      "roles": [
+        "backend-developer",
+        "security-engineer",
+        "database-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P04-T01",
+        "P04-T02",
+        "P04-T03",
+        "P04-T04",
+        "P04-T05",
+        "P04-T06",
+        "P04-T07",
+        "P04-T08",
+        "P04-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [
+        "G6",
+        "G7"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T01",
+      "name": "Database selection",
+      "outputs": "Selection ADR",
+      "validation": "Scored matrix. Operational ownership defined.",
+      "card": "workflow/phases/05-database/tasks/P05-T01.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T02",
+      "name": "Data modeling and ERD",
+      "outputs": "ERD, data dictionary",
+      "validation": "Each table has an owner and a classification. Each REQ-F data need is covered.",
+      "card": "workflow/phases/05-database/tasks/P05-T02.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T03",
+      "name": "Schema implementation and migrations",
+      "outputs": "Migration scripts, runbook",
+      "validation": "Apply-on-empty and apply-on-snapshot tests pass. Timing measured.",
+      "card": "workflow/phases/05-database/tasks/P05-T03.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T04",
+      "name": "Indexing and query optimization",
+      "outputs": "Index plan, query report",
+      "validation": "Top queries meet latency targets at projected volume (load tested).",
+      "card": "workflow/phases/05-database/tasks/P05-T04.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T05",
+      "name": "Transactions, concurrency, integrity",
+      "outputs": "Concurrency design, tests",
+      "validation": "Concurrency tests (parallel writes) demonstrate invariants.",
+      "card": "workflow/phases/05-database/tasks/P05-T05.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T06",
+      "name": "Database security",
+      "outputs": "Hardened DB config",
+      "validation": "DB security checklist complete.",
+      "card": "workflow/phases/05-database/tasks/P05-T06.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T07",
+      "name": "Backup, recovery, replication, partitioning",
+      "outputs": "Backup and DR runbook, restore test report",
+      "validation": "A successful restore with measured RTO. Data integrity checks after restore.",
+      "card": "workflow/phases/05-database/tasks/P05-T07.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T08",
+      "name": "Retention, deletion, data lifecycle",
+      "outputs": "Retention config, deletion jobs",
+      "validation": "A deletion test proves data removal across stores and caches.",
+      "card": "workflow/phases/05-database/tasks/P05-T08.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P02-T09",
+        "P05-T02"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P05-T09",
+      "name": "Caching strategy and data verification",
+      "outputs": "Cache design, verification report",
+      "validation": "Cache poisoning and cross-tenant tests pass.",
+      "card": "workflow/phases/05-database/tasks/P05-T09.md",
+      "source": "workflow/phases/05-database/README.md",
+      "phase": "P05",
+      "phase_dir": "workflow/phases/05-database",
+      "role": "database-engineer",
+      "roles": [
+        "database-engineer",
+        "backend-developer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        7,
+        12,
+        14,
+        19,
+        22
+      ],
+      "depends_on": [
+        "P05-T01",
+        "P05-T02",
+        "P05-T03",
+        "P05-T04",
+        "P05-T05",
+        "P05-T06",
+        "P05-T07",
+        "P05-T08"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [
+        "G6"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T01",
+      "name": "Security requirements and architecture review (continuous)",
+      "outputs": "Updated threat model, review notes",
+      "validation": "No design change without a threat-model delta check.",
+      "card": "workflow/phases/06-security/tasks/P06-T01.md",
+      "source": "workflow/phases/06-security/A-security-engineering.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T02",
+      "name": "Automated security controls in CI (SAST, SCA, secrets, IaC, container)",
+      "outputs": "Pipeline security stages, baseline",
+      "validation": "Intentional seeded-vulnerability test proves the tools detect a known issue (verifies the tool works).",
+      "card": "workflow/phases/06-security/tasks/P06-T02.md",
+      "source": "workflow/phases/06-security/A-security-engineering.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T03",
+      "name": "Security control implementation verification",
+      "outputs": "Control verification matrix",
+      "validation": "100% of REQ-S verified or have an accepted risk.",
+      "card": "workflow/phases/06-security/tasks/P06-T03.md",
+      "source": "workflow/phases/06-security/A-security-engineering.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T04",
+      "name": "Authorization and RoE",
+      "outputs": "Signed RoE",
+      "validation": "Human signature. Scope allowlist is configured in the tooling (tools technically restricted to in-scope targets).",
+      "card": "workflow/phases/06-security/tasks/P06-T04.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P08-T05",
+        "X-KICKOFF-T04"
+      ],
+      "gate_required": [
+        "G0"
+      ],
+      "feeds_gates": [],
+      "human_approval": "Security Authority and system owner"
+    },
+    {
+      "id": "P06-T05",
+      "name": "Reconnaissance, asset discovery, enumeration",
+      "outputs": "Asset and endpoint inventory, discrepancy list",
+      "validation": "Every discovered asset is in scope or flagged and reported (not tested).",
+      "card": "workflow/phases/06-security/tasks/P06-T05.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "penetration-tester",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T04"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T06",
+      "name": "Vulnerability assessment",
+      "outputs": "Candidate vulnerability list",
+      "validation": "Each finding has evidence, CWE, and reproduction steps, or is marked \"unconfirmed\".",
+      "card": "workflow/phases/06-security/tasks/P06-T06.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T05"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T07",
+      "name": "Web, API, authentication, and authorization testing",
+      "outputs": "Test log, findings",
+      "validation": "Each ASVS control in scope is marked pass, fail, or not applicable (with reasons).",
+      "card": "workflow/phases/06-security/tasks/P06-T07.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "penetration-tester",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T06"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T08",
+      "name": "Network, infrastructure, and configuration assessment",
+      "outputs": "Config assessment report",
+      "validation": "Benchmark deviations are documented with risk acceptance or remediation.",
+      "card": "workflow/phases/06-security/tasks/P06-T08.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "penetration-tester",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T07"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T09",
+      "name": "Controlled exploitation, privilege escalation, and post-exploitation impact assessment (where authorized)",
+      "outputs": "Proof-of-concept evidence, impact analysis",
+      "validation": "Evidence shows reproducibility and the minimal-impact method. All artifacts are cleaned up and the system is restored.",
+      "card": "workflow/phases/06-security/tasks/P06-T09.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "penetration-tester",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T08"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": "per finding class"
+    },
+    {
+      "id": "P06-T10",
+      "name": "Reporting and remediation verification",
+      "outputs": "Security Assessment Report, Vulnerability Register, Remediation Plan",
+      "validation": "Every finding is Closed-Verified, Accepted-Risk (signed), or scheduled with an owner and date.",
+      "card": "workflow/phases/06-security/tasks/P06-T10.md",
+      "source": "workflow/phases/06-security/B-offensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P06-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [
+        "G7"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T11",
+      "name": "Security monitoring, logging, detection engineering",
+      "outputs": "Detection catalogue, playbooks",
+      "validation": "Each detection is **tested** (alert fires). Alert routing verified.",
+      "card": "workflow/phases/06-security/tasks/P06-T11.md",
+      "source": "workflow/phases/06-security/C-defensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T12",
+      "name": "Incident response readiness",
+      "outputs": "IR Plan, tabletop report",
+      "validation": "Contacts verified. Containment actions executable in the runbook.",
+      "card": "workflow/phases/06-security/tasks/P06-T12.md",
+      "source": "workflow/phases/06-security/C-defensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P06-T13",
+      "name": "Hardening, access management, vulnerability management, auditing",
+      "outputs": "Hardening baselines, access review records, audit report",
+      "validation": "Automated compliance checks (for example benchmark scans) pass or have signed exceptions.",
+      "card": "workflow/phases/06-security/tasks/P06-T13.md",
+      "source": "workflow/phases/06-security/C-defensive-security.md",
+      "phase": "P06",
+      "phase_dir": "workflow/phases/06-security",
+      "role": "security-engineer",
+      "roles": [
+        "security-engineer",
+        "penetration-tester",
+        "devops-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G3"
+      ],
+      "feeds_gates": [
+        "G7"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T01",
+      "name": "Test strategy and plan",
+      "outputs": "Test Plan",
+      "validation": "Every REQ has ≥ 1 TC. Every High risk has targeted tests.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T01.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T02",
+      "name": "Unit and component tests",
+      "outputs": "Unit suites",
+      "validation": "Coverage thresholds (Part 11). Mutation testing on critical modules where feasible.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T02.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T03",
+      "name": "Integration, API, and contract tests",
+      "outputs": "Integration suites",
+      "validation": "Contract conformance is 100%.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T03.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T04",
+      "name": "End-to-end and acceptance tests",
+      "outputs": "E2E suite, UAT sign-off",
+      "validation": "Critical journeys pass on the supported browser matrix.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T04.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T05",
+      "name": "Non-functional tests: performance, load, stress, soak, reliability",
+      "outputs": "Perf and reliability reports",
+      "validation": "NFR thresholds met. Failure behavior matches the design (graceful degradation).",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T05.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09",
+        "P08-T05"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T06",
+      "name": "Compatibility and accessibility tests",
+      "outputs": "Compat and a11y reports",
+      "validation": "0 critical or serious a11y issues.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T06.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T07",
+      "name": "Security tests (with P06)",
+      "outputs": "Security regression suite",
+      "validation": "Every fixed vulnerability has a regression test.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T07.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T08",
+      "name": "Regression management, coverage analysis, defect tracking",
+      "outputs": "Coverage report, Defect Register",
+      "validation": "No S1 or S2 open. Flaky rate under the threshold.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T08.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P07-T09",
+      "name": "Test report and G6 submission",
+      "outputs": "Test Report",
+      "validation": "Satisfies G6 criteria.",
+      "card": "workflow/phases/07-testing-qa/tasks/P07-T09.md",
+      "source": "workflow/phases/07-testing-qa/README.md",
+      "phase": "P07",
+      "phase_dir": "workflow/phases/07-testing-qa",
+      "role": "qa-engineer",
+      "roles": [
+        "qa-engineer",
+        "frontend-developer",
+        "backend-developer",
+        "database-engineer",
+        "security-engineer",
+        "devops-engineer"
+      ],
+      "skills": [
+        4,
+        21,
+        22
+      ],
+      "depends_on": [
+        "P03-T09",
+        "P04-T10",
+        "P05-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [
+        "G6"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T01",
+      "name": "Git workflow, branching, PRs, review",
+      "outputs": "Repo policy, PR template",
+      "validation": "Branch protection verified by an API query.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T01.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T02",
+      "name": "CI pipeline",
+      "outputs": "CI definition",
+      "validation": "A clean-clone build is reproducible.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T02.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T03",
+      "name": "Infrastructure as Code",
+      "outputs": "IaC repo",
+      "validation": "`plan` shows no unexpected diff. IaC scan has no High findings.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T03.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T04",
+      "name": "Containerization and orchestration (where justified)",
+      "outputs": "Dockerfiles, manifests",
+      "validation": "Image scan has no unresolved High or Critical. Benchmark scan passes.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T04.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T05",
+      "name": "Environments, configuration, secrets",
+      "outputs": "Environment matrix, secrets inventory",
+      "validation": "No secret in the repo or images (scan). Production credentials are unavailable to dev and CI by default.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T05.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T06",
+      "name": "CD, deployment strategies, rollbacks",
+      "outputs": "Deploy automation, rollback runbook",
+      "validation": "Rollback is rehearsed in staging with measured time.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T06.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T07",
+      "name": "Supply chain security",
+      "outputs": "SBOM, signatures, attestations",
+      "validation": "Deploy refuses an unsigned or unverified artifact (negative test).",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T07.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T08",
+      "name": "DNS, TLS, reverse proxy, edge",
+      "outputs": "Edge config",
+      "validation": "TLS scan grade acceptable. No dangling DNS.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T08.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T09",
+      "name": "Pipeline security and permissions",
+      "outputs": "Pipeline hardening evidence",
+      "validation": "A pipeline permission review is complete. A secret-exfiltration test from a fork PR fails as expected.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T09.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T10",
+      "name": "DR and migration deployment",
+      "outputs": "DR runbook, migration stage",
+      "validation": "DR drill passes against RTO and RPO.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T10.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P02-T09"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P08-T11",
+      "name": "Pipeline verification and G8 submission",
+      "outputs": "Pipeline Evidence Pack",
+      "validation": "Satisfies G8 criteria.",
+      "card": "workflow/phases/08-devops-cicd/tasks/P08-T11.md",
+      "source": "workflow/phases/08-devops-cicd/README.md",
+      "phase": "P08",
+      "phase_dir": "workflow/phases/08-devops-cicd",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "software-architect",
+        "technical-reviewer"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        19,
+        20
+      ],
+      "depends_on": [
+        "P08-T01",
+        "P08-T02",
+        "P08-T03",
+        "P08-T04",
+        "P08-T05",
+        "P08-T06",
+        "P08-T07",
+        "P08-T08",
+        "P08-T09",
+        "P08-T10"
+      ],
+      "gate_required": [
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "feeds_gates": [
+        "G8"
+      ],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T01",
+      "name": "Pre-deployment verification",
+      "outputs": "Release candidate dossier",
+      "validation": "The digest match is recorded.",
+      "card": "workflow/phases/09-release/tasks/P09-T01.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P07-T09",
+        "P06-T10",
+        "P08-T11"
+      ],
+      "gate_required": [
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T02",
+      "name": "Release readiness assessment",
+      "outputs": "Readiness Report",
+      "validation": "All items green or waived by an authority.",
+      "card": "workflow/phases/09-release/tasks/P09-T02.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T01"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T03",
+      "name": "Security approval",
+      "outputs": "Security Approval record",
+      "validation": "Signed approval.",
+      "card": "workflow/phases/09-release/tasks/P09-T03.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T02"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": "Security Authority"
+    },
+    {
+      "id": "P09-T04",
+      "name": "Production configuration and migration validation",
+      "outputs": "Config diff report, migration validation",
+      "validation": "Reviewer confirms the diff.",
+      "card": "workflow/phases/09-release/tasks/P09-T04.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T03"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T05",
+      "name": "Deployment execution (human-approved, NN-04)",
+      "outputs": "Deployment log",
+      "validation": "The pipeline log shows the approved run ID and approver.",
+      "card": "workflow/phases/09-release/tasks/P09-T05.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T04"
+      ],
+      "gate_required": [
+        "G9"
+      ],
+      "feeds_gates": [],
+      "human_approval": "Release Authority"
+    },
+    {
+      "id": "P09-T06",
+      "name": "Smoke tests and health checks",
+      "outputs": "Smoke report",
+      "validation": "All pass. Otherwise execute P09-T07.",
+      "card": "workflow/phases/09-release/tasks/P09-T06.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T05"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T07",
+      "name": "Rollback decision (if triggered)",
+      "outputs": "Rollback record",
+      "validation": "Verified restore of the prior state, plus a post-rollback smoke test.",
+      "card": "workflow/phases/09-release/tasks/P09-T07.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T06"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P09-T08",
+      "name": "Release documentation and change management",
+      "outputs": "Release notes, Deployment Report",
+      "validation": "G9 and G10 recorded.",
+      "card": "workflow/phases/09-release/tasks/P09-T08.md",
+      "source": "workflow/phases/09-release/README.md",
+      "phase": "P09",
+      "phase_dir": "workflow/phases/09-release",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "orchestrator",
+        "technical-reviewer",
+        "security-engineer",
+        "qa-engineer"
+      ],
+      "skills": [
+        12,
+        13,
+        14,
+        21,
+        23
+      ],
+      "depends_on": [
+        "P09-T05",
+        "P09-T06",
+        "P09-T07"
+      ],
+      "gate_required": [],
+      "feeds_gates": [
+        "G10"
+      ],
+      "human_approval": "Release Authority"
+    },
+    {
+      "id": "P10-T01",
+      "name": "Observability foundation",
+      "outputs": "Dashboards, log schema",
+      "validation": "Trace of a sample request spans all components.",
+      "card": "workflow/phases/10-operations/tasks/P10-T01.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T02",
+      "name": "SLOs, alerting, availability and performance monitoring",
+      "outputs": "SLO doc, alert rules",
+      "validation": "An alert-fire test for each critical alert.",
+      "card": "workflow/phases/10-operations/tasks/P10-T02.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T03",
+      "name": "Security event monitoring",
+      "outputs": "Security dashboards, triage records",
+      "validation": "Detection coverage mapped to ATT&CK. Triage SLA met.",
+      "card": "workflow/phases/10-operations/tasks/P10-T03.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T04",
+      "name": "Vulnerability, dependency, and patch management",
+      "outputs": "Vulnerability Register, patch log",
+      "validation": "SLA compliance rate is reported monthly.",
+      "card": "workflow/phases/10-operations/tasks/P10-T04.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T05",
+      "name": "Backup verification and disaster recovery testing",
+      "outputs": "Restore and DR reports",
+      "validation": "Measured values meet the targets, or a remediation plan exists.",
+      "card": "workflow/phases/10-operations/tasks/P10-T05.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T06",
+      "name": "Incident management",
+      "outputs": "Incident records, PIRs",
+      "validation": "Every Sev1 and Sev2 has a PIR within 5 business days.",
+      "card": "workflow/phases/10-operations/tasks/P10-T06.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T07",
+      "name": "Capacity planning and cost",
+      "outputs": "Capacity report",
+      "validation": "Headroom policy met (for example peak utilization below 70%).",
+      "card": "workflow/phases/10-operations/tasks/P10-T07.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T08",
+      "name": "Technical debt management",
+      "outputs": "Debt register",
+      "validation": "Debt trend reported each cycle.",
+      "card": "workflow/phases/10-operations/tasks/P10-T08.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P10-T09",
+      "name": "Operational documentation",
+      "outputs": "Ops docs",
+      "validation": "A new agent or human can execute a runbook without extra help (verified by a dry run).",
+      "card": "workflow/phases/10-operations/tasks/P10-T09.md",
+      "source": "workflow/phases/10-operations/README.md",
+      "phase": "P10",
+      "phase_dir": "workflow/phases/10-operations",
+      "role": "devops-engineer",
+      "roles": [
+        "devops-engineer",
+        "security-engineer",
+        "backend-developer",
+        "database-engineer",
+        "orchestrator"
+      ],
+      "skills": [
+        10,
+        11,
+        12,
+        13,
+        17,
+        18,
+        20,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P09-T08"
+      ],
+      "gate_required": [
+        "G10"
+      ],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T01",
+      "name": "Engineering retrospectives",
+      "outputs": "Retro notes, action list",
+      "validation": "Previous actions are reviewed for closure.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T01.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T02",
+      "name": "Architecture review",
+      "outputs": "Architecture review report, new ADRs",
+      "validation": "Fitness functions pass. Stale ADRs are marked superseded.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T02.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T03",
+      "name": "Security reassessment",
+      "outputs": "Reassessment report",
+      "validation": "Delta findings are tracked in the Vulnerability Register.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T03.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T04",
+      "name": "Performance and scalability optimization",
+      "outputs": "Optimization reports",
+      "validation": "A measured improvement, with no regression elsewhere.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T04.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T05",
+      "name": "Refactoring and debt reduction",
+      "outputs": "Refactoring PRs",
+      "validation": "Tests stay green, and the complexity metrics improve.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T05.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T06",
+      "name": "Dependency lifecycle and technology evaluation",
+      "outputs": "Radar, upgrade plans",
+      "validation": "Each adoption has an ADR.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T06.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T07",
+      "name": "Documentation updates and lessons learned",
+      "outputs": "Updated docs",
+      "validation": "Docs-as-code checks pass.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T07.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    },
+    {
+      "id": "P11-T08",
+      "name": "Future development planning",
+      "outputs": "Continuous Improvement Roadmap",
+      "validation": "Approved by the Product Owner.",
+      "card": "workflow/phases/11-improvement/tasks/P11-T08.md",
+      "source": "workflow/phases/11-improvement/README.md",
+      "phase": "P11",
+      "phase_dir": "workflow/phases/11-improvement",
+      "role": "project-analyst",
+      "roles": [
+        "project-analyst",
+        "software-architect",
+        "security-engineer",
+        "devops-engineer",
+        "qa-engineer",
+        "technical-reviewer"
+      ],
+      "skills": [
+        4,
+        9,
+        14,
+        21,
+        22,
+        23
+      ],
+      "depends_on": [
+        "P10-T09"
+      ],
+      "gate_required": [],
+      "feeds_gates": [],
+      "human_approval": ""
+    }
+  ]
+}

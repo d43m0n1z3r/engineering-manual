@@ -3,7 +3,7 @@
 **Purpose and why.** The backend enforces business rules and **all** security decisions. It is the authoritative trust boundary.
 
 **Roles.** Backend Developer (lead), Security Engineer, Database Engineer, QA Engineer, Technical Reviewer.
-**Skills.** Cats 2, 3, 4, 6, 8, 14, 19, 22.
+**Skills.** [Cat 2](../../../skills/02-programming-languages-and-paradigms.md), [Cat 3](../../../skills/03-data-structures-and-algorithms.md), [Cat 4](../../../skills/04-software-engineering-principles.md), [Cat 6](../../../skills/06-backend-engineering.md), [Cat 8](../../../skills/08-api-and-integration-engineering.md), [Cat 14](../../../skills/14-application-security.md), [Cat 19](../../../skills/19-cryptography-and-identity-management.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md).
 
 ### Tasks
 

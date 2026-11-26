@@ -3,7 +3,7 @@
 **Purpose and why.** The frontend is the user's trust surface and a primary attack surface. Usable, accessible, and resilient interfaces reduce user error, support cost, and risky workarounds.
 
 **Roles.** UI/UX Engineer, Frontend Developer, Security Engineer (review), QA Engineer, Technical Reviewer.
-**Skills.** Cat 5 (Part 5), 14, 21, 22, 23.
+**Skills.** [Cat 5](../../../skills/05-frontend-engineering.md), [Cat 14](../../../skills/14-application-security.md), [Cat 21](../../../skills/21-software-testing-and-quality-assurance.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md), [Cat 23](../../../skills/23-technical-documentation-and-engineering-communication.md) (Part 5).
 
 ### Tasks
 

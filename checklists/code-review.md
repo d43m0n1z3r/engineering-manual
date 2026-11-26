@@ -1,32 +1,32 @@
 ## 19.3 Code review checklist
 
 **Design:**
-- SRP and clear naming.
-- The dependency direction is respected.
-- No speculative abstraction (YAGNI).
-- No duplicated *knowledge* (DRY).
-- The errors are handled and not swallowed.
-- The timeouts are on every outbound call.
-- The operations are idempotent where retried.
+- [ ] SRP and clear naming.
+- [ ] The dependency direction is respected.
+- [ ] No speculative abstraction (YAGNI).
+- [ ] No duplicated *knowledge* (DRY).
+- [ ] The errors are handled and not swallowed.
+- [ ] The timeouts are on every outbound call.
+- [ ] The operations are idempotent where retried.
 
 **Security:**
-- All the inputs validated (type, length, range, the allowlist) server-side.
-- The queries are parameterized.
-- The output is encoded by the context.
-- AuthN and the object-level authZ checks are present.
-- The tenant ID is not from the client.
-- The mass-assignment is prevented (the DTO allowlist).
-- No secrets in the code, the config, or the logs.
-- The crypto uses vetted libraries and the modern primitives.
-- No unsafe deserialization, no `eval`, and no shell construction.
-- The file handling is safe (path, type, and size).
-- The SSRF defenses exist for the outbound requests.
-- The error messages disclose nothing internal.
-- The new dependencies are reviewed.
-- The rate and the resource limits exist.
+- [ ] All the inputs validated (type, length, range, the allowlist) server-side.
+- [ ] The queries are parameterized.
+- [ ] The output is encoded by the context.
+- [ ] AuthN and the object-level authZ checks are present.
+- [ ] The tenant ID is not from the client.
+- [ ] The mass-assignment is prevented (the DTO allowlist).
+- [ ] No secrets in the code, the config, or the logs.
+- [ ] The crypto uses vetted libraries and the modern primitives.
+- [ ] No unsafe deserialization, no `eval`, and no shell construction.
+- [ ] The file handling is safe (path, type, and size).
+- [ ] The SSRF defenses exist for the outbound requests.
+- [ ] The error messages disclose nothing internal.
+- [ ] The new dependencies are reviewed.
+- [ ] The rate and the resource limits exist.
 
 **Quality:**
-- The tests cover the positive, negative, and abuse paths.
-- The tests are deterministic.
-- The docs are updated.
-- The migration is backward-compatible.
+- [ ] The tests cover the positive, negative, and abuse paths.
+- [ ] The tests are deterministic.
+- [ ] The docs are updated.
+- [ ] The migration is backward-compatible.

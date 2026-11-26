@@ -17,4 +17,6 @@ An **evidence record** (`EVD-###`) MUST contain:
 
 Evidence is **stale** if the commit or artifact it refers to has changed in a way that could invalidate it. Stale evidence MUST be regenerated before gate review.
 
+All timestamps are UTC ISO-8601. Choose the storage class by the data classification in §2.3: Public and Internal evidence may live in `EVIDENCE/`; Confidential and Restricted evidence, exploit details, and sensitive architecture live in restricted storage with access logging. Retention follows the project policy and the referenced gate or release; sensitive evidence is not retained longer than needed. Append-only execution logs SHOULD be integrity-protected (for example hash-chained or exported to tamper-evident storage) for high-assurance projects.
+
 ---

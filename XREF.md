@@ -94,3 +94,41 @@ This index maps detected numbered sections in the original manual to generated f
 | §19.8 | [checklists/release-readiness.md](checklists/release-readiness.md) |
 | §19.9 | [checklists/operations.md](checklists/operations.md) |
 | §19.10 | [checklists/agent-self-check.md](checklists/agent-self-check.md) |
+
+## Non-numbered sections and generated artifacts
+
+| Source location | Generated file(s) |
+|---|---|
+| Part 4 phase template | [workflow/phases/README.md](workflow/phases/README.md) |
+| X-KICKOFF | [workflow/kickoff/README.md](workflow/kickoff/README.md) |
+| Phase 01 | [workflow/phases/01-discovery-requirements/README.md](workflow/phases/01-discovery-requirements/README.md) |
+| Phase 02 | [workflow/phases/02-architecture/README.md](workflow/phases/02-architecture/README.md) |
+| Phase 03 | [workflow/phases/03-ui-ux-frontend/README.md](workflow/phases/03-ui-ux-frontend/README.md) |
+| Phase 04 | [workflow/phases/04-backend-api/README.md](workflow/phases/04-backend-api/README.md) |
+| Phase 05 | [workflow/phases/05-database/README.md](workflow/phases/05-database/README.md) |
+| Phase 06 | [workflow/phases/06-security/README.md](workflow/phases/06-security/README.md) and subsections A–E |
+| Phase 07 | [workflow/phases/07-testing-qa/README.md](workflow/phases/07-testing-qa/README.md) |
+| Phase 08 | [workflow/phases/08-devops-cicd/README.md](workflow/phases/08-devops-cicd/README.md) |
+| Phase 09 | [workflow/phases/09-release/README.md](workflow/phases/09-release/README.md) |
+| Phase 10 | [workflow/phases/10-operations/README.md](workflow/phases/10-operations/README.md) |
+| Phase 11 | [workflow/phases/11-improvement/README.md](workflow/phases/11-improvement/README.md) |
+| Part 10 gates | [workflow/gates/README.md](workflow/gates/README.md) |
+| G0 | [workflow/gates/G0.md](workflow/gates/G0.md) |
+| G1 | [workflow/gates/G1.md](workflow/gates/G1.md) |
+| G2 | [workflow/gates/G2.md](workflow/gates/G2.md) |
+| G3 | [workflow/gates/G3.md](workflow/gates/G3.md) |
+| G4 | [workflow/gates/G4.md](workflow/gates/G4.md) |
+| G5 | [workflow/gates/G5.md](workflow/gates/G5.md) |
+| G6 | [workflow/gates/G6.md](workflow/gates/G6.md) |
+| G7 | [workflow/gates/G7.md](workflow/gates/G7.md) |
+| G8 | [workflow/gates/G8.md](workflow/gates/G8.md) |
+| G9 | [workflow/gates/G9.md](workflow/gates/G9.md) |
+| G10 | [workflow/gates/G10.md](workflow/gates/G10.md) |
+| Gate-bypass policy | [workflow/gates/bypass-policy.md](workflow/gates/bypass-policy.md) |
+| Part 16 | [workflow/state-machine/master-diagram.md](workflow/state-machine/master-diagram.md) |
+| Appendix A | [agents/boot-sequence.md](agents/boot-sequence.md) |
+| Appendix B | [workflow/worked-example-new-endpoint.md](workflow/worked-example-new-endpoint.md) |
+
+Skill categories 1–23 under Part 5 are split into `skills/01-*.md` through
+`skills/23-*.md`; see [skills/README.md](skills/README.md) and
+[skills/role-minimums.md](skills/role-minimums.md).

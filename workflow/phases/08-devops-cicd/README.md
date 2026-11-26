@@ -3,7 +3,7 @@
 **Purpose and why.** Reproducible, secure, automated delivery reduces human error and shortens recovery. The pipeline is a high-value attack target and MUST be treated as production infrastructure.
 
 **Roles.** DevOps Engineer (lead), Security Engineer, Software Architect, Technical Reviewer.
-**Skills.** Cats 10, 11, 12, 13, 20, 19.
+**Skills.** [Cat 10](../../../skills/10-operating-systems-and-linux.md), [Cat 11](../../../skills/11-networking-and-network-security.md), [Cat 12](../../../skills/12-cloud-and-infrastructure-engineering.md), [Cat 13](../../../skills/13-devops-and-platform-engineering.md), [Cat 20](../../../skills/20-security-automation-and-devsecops.md), [Cat 19](../../../skills/19-cryptography-and-identity-management.md).
 
 ### Tasks
 

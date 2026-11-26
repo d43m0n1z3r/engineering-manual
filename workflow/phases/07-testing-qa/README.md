@@ -3,7 +3,7 @@
 **Purpose and why.** Tests are executable specifications and the safety net that makes change safe. Quality gates make "done" measurable.
 
 **Roles.** QA Engineer (lead), all developers (unit and component tests), Security Engineer, DevOps Engineer.
-**Skills.** Cats 21, 22, 4.
+**Skills.** [Cat 21](../../../skills/21-software-testing-and-quality-assurance.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md), [Cat 4](../../../skills/04-software-engineering-principles.md).
 
 ### Tasks
 

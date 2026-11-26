@@ -3,7 +3,7 @@
 ```yaml
 id: EVD-0000
 task_id: Pxx-Tyy
-type: test-report | scan-report | diff | review | approval | benchmark | log
+type: test-report | scan-report | diff | log-excerpt | screenshot | approval | benchmark | review
 tool_and_version: "<name> <version> | manual review"
 command_or_method: "<exact, secrets redacted>"
 commit_or_digest: "<sha | sha256:...>"

@@ -9,7 +9,7 @@ Initialize project ledger
 
 ## Execution instructions
 
-Create the repository folder structure for ledger files (§8.5): `STATE.md`, `ASSUMPTIONS.md`, `DECISIONS/`, `EVIDENCE/`, `RTM.md`, `RISKS.md`, `MEMORY.md`. If the project uses Graphify, build or update `graphify-out/` and confirm agents can query it.
+Copy `ledger-template/` into the project repository or approved workspace. Confirm `STATE.md`, `ASSUMPTIONS.md`, `GLOSSARY.md`, `RTM.md`, `RISKS.md`, `MEMORY.md`, `DEFECTS.md`, `INCIDENTS.md`, `DECISIONS/`, `EVIDENCE/`, `HANDOFFS/`, `LOG/`, and `RESTRICTED/` exist; keep `RESTRICTED/VULNS.md` in approved restricted storage. If the project uses Graphify, build or update `graphify-out/` and confirm agents can query it.
 
 ## Expected outputs
 
@@ -17,7 +17,7 @@ Ledger
 
 ## Validation
 
-Files exist and are version controlled; `graphify-out/` exists and is current when Graphify is configured.
+Files exist and are version controlled; `RESTRICTED/VULNS.md` is access-restricted; `graphify-out/` exists and is current when Graphify is configured.
 
 ## Required context and task instantiation
 

@@ -10,5 +10,6 @@
 | Accessing production data | Required, just-in-time | Data Owner |
 | Risk acceptance, gate waivers | Required, time-boxed | The gate's authority |
 | Adding a new third-party dependency with a notable risk (low maintenance, unusual permissions, and a copyleft license) | Required | Engineering Authority |
+| Sending secrets, Restricted data, or unapproved production data to external AI/model/tool endpoints | Required | Data Owner and Security Authority |
 | Spending above the budget limits | Required | Sponsor |
 | External communication (breach notification, customer notices) | Required | Humans only |

@@ -9,15 +9,15 @@ Establish project charter and authority
 
 ## Execution instructions
 
-Record sponsor, product owner, Engineering Authority, Security Authority, and data owner. Define communication channels and approval authorities.
+Record sponsor, product owner, Engineering Authority, Security Authority, and data owner. Define communication channels and approval authorities. Record the process profile (for example exploratory, internal, production, or regulated) and any pre-approved tailoring; evidence, authorization, and ★ security criteria are never waived by profile.
 
 ## Expected outputs
 
-Charter, Authority Register
+Charter, Authority Register, Process Profile
 
 ## Validation
 
-Humans have signed. Every gate has a named approver.
+Humans have signed. Every gate has a named approver. The process profile is recorded and deviations require an approved ADR.
 
 ## Required context and task instantiation
 

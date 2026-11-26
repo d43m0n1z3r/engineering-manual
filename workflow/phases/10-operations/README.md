@@ -3,6 +3,7 @@
 **Purpose and why.** Software degrades through dependency drift, new vulnerabilities, load growth, and entropy. Operations keeps the system observable, patched, recoverable, and economical.
 
 **Roles.** DevOps Engineer (lead), Security Engineer, Backend and Database Engineers (on-call responders), Orchestrator.
+**Skills.** Linux and networking operations, cloud and IaC, DevOps/platform engineering, defensive security and incident response, security automation, performance and reliability, and technical documentation (Part 5: [Cat 10](../../../skills/10-operating-systems-and-linux.md), [Cat 11](../../../skills/11-networking-and-network-security.md), [Cat 12](../../../skills/12-cloud-and-infrastructure-engineering.md), [Cat 13](../../../skills/13-devops-and-platform-engineering.md), [Cat 17](../../../skills/17-defensive-security-and-blue-team-operations.md), [Cat 18](../../../skills/18-digital-forensics-and-incident-response.md), [Cat 20](../../../skills/20-security-automation-and-devsecops.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md), [Cat 23](../../../skills/23-technical-documentation-and-engineering-communication.md)).
 
 ### Tasks
 

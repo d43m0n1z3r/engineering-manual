@@ -3,7 +3,7 @@
 **Purpose and why.** Data outlives code. Integrity, recoverability, and confidentiality of data are core obligations.
 
 **Roles.** Database Engineer (lead), Backend Developer, Security Engineer, DevOps Engineer.
-**Skills.** Cat 7, 14, 19, 22, 12.
+**Skills.** [Cat 7](../../../skills/07-database-engineering.md), [Cat 14](../../../skills/14-application-security.md), [Cat 19](../../../skills/19-cryptography-and-identity-management.md), [Cat 22](../../../skills/22-performance-and-reliability-engineering.md), [Cat 12](../../../skills/12-cloud-and-infrastructure-engineering.md).
 
 ### Tasks
 
@@ -29,7 +29,7 @@
 | Credentials | Secrets manager. Dynamic short-lived DB credentials where supported. No defaults. Rotate on staff or agent change. |
 | Masking | Production data is not copied to non-prod. Use synthetic or irreversibly masked data. Dynamic masking for support roles. |
 | Auditing | Log DDL, privilege changes, and access to Restricted tables. Logs are tamper-resistant and shipped off-host. |
-| Retention and deletion | Enforced per §P05-T08. |
+| Retention and deletion | Enforced per P05-T08. |
 | Backup protection | Encrypted, access-restricted, immutable copies, with integrity verification. |
 | Hardening | CIS Benchmark for the DB engine, disable unused features, and patch within the SLA (§2.3). |
 

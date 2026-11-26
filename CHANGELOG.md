@@ -11,11 +11,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-27
+
+### Added
+
+- Agent ecosystem threat model and controls for agent skills, MCP servers,
+  plugins, hooks, tool-output poisoning, confused deputy actions, data egress
+  to external model/tool endpoints, credential persistence, ledger tampering,
+  and goal misgeneralization.
+- Process profile recording at X-KICKOFF-T01/G0 for pre-authorized rigor
+  tailoring without waiving evidence, authorization, or ★ security criteria.
+- Ledger registers for defects, incidents, and restricted vulnerabilities;
+  evidence governance for storage class, retention, UTC timestamps, and
+  integrity protection; and a deliverable template coverage catalog.
+- Machine-readable task/gate registry (`workflow/task-registry.json`) with a
+  generator and consistency checks; repository CI for manual checks; expanded
+  navigation/index coverage; and skill-category links in phase READMEs.
+- Repository governance files (`CONTRIBUTING.md`, `SECURITY.md`, `CODEOWNERS`,
+  `AMENDMENT-PROCESS.md`), the Graphify `graphify-out/` output policy, and
+  Roles/Skills metadata for phases 09–11.
+
 ### Fixed
 
 - Reformatted all files in `checklists/` so each checklist item renders as
   its own Markdown line (previously multiple `- [ ]` items were crammed onto
   single lines and rendered as run-on text in previews).
+- Clarified `source/manual.md` provenance as the frozen generation input and
+  added manifest version/source-hash/provenance fields.
+- Corrected stale or ambiguous references (`§4.6.B`, `Security (4.14)`,
+  `§P05-T08`, `§P01-T06`, `§20`, and `§Gate-bypass policy`) and expanded
+  `XREF.md` for unnumbered sections and generated artifacts.
+- Aligned kickoff ledger initialization with `ledger-template/`, aligned the
+  evidence type list with §2.4, and converted the code-review checklist to
+  checkboxes.
+- Standardized `skills/role-minimums.md` to skill category/row references,
+  clarified ledger bootstrap for projects versus this manual repository, and
+  defined the manual fingerprint used by load receipts.
 
 ## [1.2.0] - 2026-11-27
 
@@ -40,7 +71,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   and refreshing the Graphify graph.
 - README badge bumped to 1.2.0; INDEX gained an agent-memory reference row.
 
-## [1.1.0]
+## [1.1.0] - 2026-11-26
 
 ### Added
 
@@ -51,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Content fixes across the boot sequence, agent lifecycle protocol, role
   cards, testing strategy thresholds, and phase 07 task P07-T02.
 
-## [1.0.0]
+## [1.0.0] - 2026-11-26
 
 ### Added
 

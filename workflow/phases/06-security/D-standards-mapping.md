@@ -7,7 +7,7 @@
 | OWASP API Security Top 10 (2023; verify) | API-specific test plan. | P06-T07 |
 | OWASP WSTG / MASVS (mobile) | Test methodology. | Test log |
 | NIST CSF 2.0 | Organizational posture (Govern, Identify, Protect, Detect, Respond, Recover). | Program-level mapping in Phase 11 |
-| NIST SSDF (SP 800-218) | Secure development practices (PO, PS, PW, RV groups). This manual is mapped to it in §20. | SDLC evidence |
+| NIST SSDF (SP 800-218) | Secure development practices (PO, PS, PW, RV groups). This manual is mapped to it in [Part 20](../../../references.md). | SDLC evidence |
 | CIS Benchmarks / CIS Controls | Hardening baselines. | Hardening reports |
 | MITRE ATT&CK / CAPEC | Detection coverage mapping, threat modeling, and reporting taxonomy. | Detection catalogue |
 | CWE / CVE / CVSS / EPSS / KEV | Classifying, scoring, and prioritizing weaknesses and known vulnerabilities. | Vulnerability Register |

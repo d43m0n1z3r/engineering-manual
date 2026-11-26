@@ -3,6 +3,7 @@
 **Purpose and why.** Releasing is the highest-risk routine activity. A disciplined, reversible release process with explicit approvals limits damage.
 
 **Roles.** DevOps Engineer (executor), Orchestrator, Technical Reviewer, Security Engineer, QA Engineer, **Human Release Authority (mandatory approver)**.
+**Skills.** Release engineering, deployment operations, security review, QA verification, and technical communication (Part 5: [Cat 12](../../../skills/12-cloud-and-infrastructure-engineering.md), [Cat 13](../../../skills/13-devops-and-platform-engineering.md), [Cat 14](../../../skills/14-application-security.md), [Cat 21](../../../skills/21-software-testing-and-quality-assurance.md), [Cat 23](../../../skills/23-technical-documentation-and-engineering-communication.md)).
 
 ### Tasks
 

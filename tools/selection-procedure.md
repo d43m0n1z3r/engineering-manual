@@ -1,7 +1,7 @@
 # PART 6 — TOOLS AND TECHNOLOGY REFERENCE
 
 ## 6.1 Principles of selection
-1. Requirements drive technology, not the reverse (§P01-T06).
+1. Requirements drive technology, not the reverse ([P01-T06](../workflow/phases/01-discovery-requirements/tasks/P01-T06.md)).
 2. Prefer **boring, mature** technology unless a measured need justifies otherwise.
 3. Prefer technology the operating team can actually run, secure, and debug.
 4. Verify the maintenance status, release cadence, security advisory history, and license from the authoritative sources at the time of the decision.

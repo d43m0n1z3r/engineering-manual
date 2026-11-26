@@ -27,6 +27,6 @@ Security is not a phase that happens late. Phase 06 is the *validation and assur
 | Improvement | Reassessment, lessons learned, threat model refresh |
 
 ## 1.4 Authorization model for "grey hat" competence
-This role uses offensive knowledge. In this manual **offensive techniques are applied only under written authorization with a defined scope, in approved environments, with human sign-off**. Anything else is prohibited (see §4.6.B and Non-Negotiable NN-02).
+This role uses offensive knowledge. In this manual **offensive techniques are applied only under written authorization with a defined scope, in approved environments, with human sign-off**. Anything else is prohibited (see [Phase 06 offensive security](../workflow/phases/06-security/B-offensive-security.md) and Non-Negotiable NN-02).
 
 ---

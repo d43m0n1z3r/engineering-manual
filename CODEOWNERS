@@ -1,0 +1,13 @@
+# Maintainer handle/team for this repository. Security-sensitive paths still
+# require the human Security Authority review described in AMENDMENT-PROCESS.md
+# when the manual is applied to a project.
+
+* @d43m0n1z3r
+/core/ @d43m0n1z3r
+/workflow/gates/ @d43m0n1z3r
+/workflow/phases/06-security/ @d43m0n1z3r
+/agents/ @d43m0n1z3r
+/scripts/ @d43m0n1z3r
+/.github/ @d43m0n1z3r
+/ledger-template/ @d43m0n1z3r
+/standards/ @d43m0n1z3r

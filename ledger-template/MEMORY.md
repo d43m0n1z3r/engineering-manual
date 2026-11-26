@@ -29,3 +29,15 @@ directory.
 - Install: `pip install graphifyy && graphify install` (the PyPI name is
   temporarily `graphifyy`; the CLI and `/graphify` skill are `graphify`)
 - Configured: <yes/no, date, verified by>
+
+## Output policy
+
+- `graphify-out/` is generated agent memory. Default: do not commit it to the
+  project repository; add it to `.gitignore` and regenerate during onboarding or
+  CI (`graphify . --update`) so agents query a current graph.
+- Commit `graphify-out/` only when the project approves shared agent memory and
+  the indexed corpus contains no secrets, credentials, Restricted data, or
+  sensitive architecture. Document the access class, owner, and refresh mechanism
+  in this file.
+- Treat a committed graph as at least Internal: it can reveal code structure and
+  decisions. Prefer regeneration over distributing large graphs in history.

@@ -1,0 +1,16 @@
+name: manual-checks
+
+on: [push, pull_request]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Task registry freshness
+        run: python3 scripts/build_task_registry.py --check
+      - name: Manual consistency checks
+        run: python3 scripts/check_manual.py

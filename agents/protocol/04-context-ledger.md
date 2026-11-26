@@ -10,7 +10,9 @@ Agents have limited memory and no guarantee of continuity. Therefore **the repos
 | `EVIDENCE/EVD-###` | The evidence records (§2.4) | Task executor |
 | `RTM.md` (or tool) | Traceability: REQ → design → code → test → release | All, checked by the Reviewer |
 | `RISKS.md` | The risk register | Analyst, Security |
-| `VULNS.md` (restricted access) | The Vulnerability Register | Security |
+| `DEFECTS.md` | The defect register (or a link to the tracker of record) | QA |
+| `INCIDENTS.md` | Incident index and links to restricted incident records | Security, DevOps |
+| `RESTRICTED/VULNS.md` | The Vulnerability Register (restricted storage) | Security |
 | `LOG/` | Execution logs (§8.12) | Every agent |
 | `HANDOFFS/` | Handoff packets | Every agent |
 | `GLOSSARY.md` | The ubiquitous language and the terms | All |

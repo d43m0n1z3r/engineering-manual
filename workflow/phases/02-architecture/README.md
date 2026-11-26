@@ -3,7 +3,7 @@
 **Purpose and why.** Architecture determines whether quality attributes are achievable. Threat modeling at this stage costs a fraction of retrofitting security. The aim is the *simplest architecture that meets the quantified NFRs*.
 
 **Roles.** Software Architect (lead), Security Engineer, Database Engineer, DevOps Engineer, Technical Reviewer.
-**Skills.** Cats 9, 8, 7, 12, 14, 19 (Part 5).
+**Skills.** [Cat 9](../../../skills/09-system-design-and-architecture.md), [Cat 8](../../../skills/08-api-and-integration-engineering.md), [Cat 7](../../../skills/07-database-engineering.md), [Cat 12](../../../skills/12-cloud-and-infrastructure-engineering.md), [Cat 14](../../../skills/14-application-security.md), [Cat 19](../../../skills/19-cryptography-and-identity-management.md) (Part 5).
 
 ### Tasks
 

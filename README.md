@@ -4,7 +4,7 @@
 > engineers that design, build, secure, test, deploy, and operate software.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](manifest.json)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](manifest.json)
 [![Phases](https://img.shields.io/badge/SDLC%20phases-11-orange.svg)](workflow/phases/)
 [![Tasks](https://img.shields.io/badge/task%20cards-108-orange.svg)](TASKS.md)
 [![Roles](https://img.shields.io/badge/agent%20roles-12-purple.svg)](agents/roles/)
@@ -48,16 +48,29 @@ operations, and improvement.
 |---|---|
 | [`AGENTS.md`](AGENTS.md) | Entry point and core obligations for agents |
 | [`INDEX.md`](INDEX.md) | Context-loading guide and directory map |
+| [`TASKS.md`](TASKS.md) | Task-card index (108 cards) |
+| [`workflow/task-registry.json`](workflow/task-registry.json) | Machine-readable task/gate registry |
+| [`XREF.md`](XREF.md) | Original section cross-reference |
+| [`REPORT.md`](REPORT.md) | Generation report and known limitations |
+| [`CHANGELOG.md`](CHANGELOG.md) | Living-repository change log |
+| [`references.md`](references.md) | Standards and references cited |
+| [`manifest.json`](manifest.json) | Provenance and generated-file manifest |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution and amendment rules |
+| [`SECURITY.md`](SECURITY.md) | Security reporting |
+| [`CODEOWNERS`](CODEOWNERS) | Review ownership |
+| [`AMENDMENT-PROCESS.md`](AMENDMENT-PROCESS.md) | Manual amendment governance |
 | `core/` | Non-negotiables, principles, data classifications, evidence standard |
-| `workflow/` | SDLC phases, task cards, gates, state machine, kickoff |
-| `agents/` | Role cards, permission tiers, human authorities, execution protocol |
+| `workflow/` | SDLC phases, task cards, gates, state machine, kickoff, task registry |
+| `agents/` | Role cards, permission tiers, human authorities, agent threat model, execution protocol |
 | `skills/` | Competency taxonomy: 23 skill categories with proficiency levels |
 | `standards/` | Testing, CI/CD, operations, documentation, improvement standards |
 | `tools/` | Technology selection procedure, landscape, and archetypes |
-| `templates/` | Evidence, gate dossier, RoE, ADR, vulnerability, incident, PR templates |
+| `templates/` | Template catalog: evidence, gate dossier, RoE, ADR, vulnerability, incident, PR, CCR |
 | `checklists/` | Definitions of done and per-domain engineering checklists |
 | `ledger-template/` | Starter project state and traceability files for new projects |
-| `source/` | The original manual, preserved unmodified for audit |
+| `scripts/` | Repository consistency checks and the task-registry generator |
+| `.github/` | CI checks for this manual |
+| `source/` | The frozen original generation input, preserved for audit |
 
 ## Quick start
 
@@ -75,6 +88,10 @@ This repository was **generated from a single source manual**
 
 - Task and role cards are **derived convenience views**; the authoritative
   content remains in the phase files and `source/`.
+- `source/manual.md` is the frozen original generation input preserved for
+  audit, not a live mirror of this repository. Post-generation changes are
+  tracked in `CHANGELOG.md`; recovering from `source/manual.md` restores the
+  generation baseline only.
 - The files preserve the source rather than resolving contradictions —
   escalate conflicts to the appropriate human authority.
 - Original cross-references (e.g. "Part 8", "§2.3") are preserved, not rewritten;

@@ -8,7 +8,7 @@ Each action that changes state is logged in an append-only structured record:
  "commit":"abc123","permission_tier":"T1","notes":""}
 ```
 
-Logs MUST NOT contain secrets or personal data. They record *decisions and reasons* as well as actions, so that a reviewer can reconstruct the "why".
+Timestamps are UTC ISO-8601. Logs MUST NOT contain secrets or personal data. They record *decisions and reasons* as well as actions, so that a reviewer can reconstruct the "why".
 
 ## 8.13 Progress reporting
 
