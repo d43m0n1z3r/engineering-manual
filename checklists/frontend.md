@@ -1,2 +1,13 @@
 ## 19.4 Frontend checklist
-- [ ] The framework auto-escaping is used. No unsanitized raw HTML. [ ] The CSP is enforced (no `unsafe-inline` or `unsafe-eval`). [ ] The CSRF protection and the `SameSite` cookies. [ ] No tokens in `localStorage` (or an ADR-justified exception). [ ] No secrets in the bundle or in the source maps in production. [ ] The security headers are set. [ ] SRI for the third-party assets. [ ] WCAG 2.2 AA (automated and manual). [ ] The error, the loading, and the empty states. [ ] The performance budgets. [ ] The browser matrix tested. [ ] The server re-validates all the inputs.
+- [ ] The framework auto-escaping is used. No unsanitized raw HTML.
+- [ ] The CSP is enforced (no `unsafe-inline` or `unsafe-eval`).
+- [ ] The CSRF protection and the `SameSite` cookies.
+- [ ] No tokens in `localStorage` (or an ADR-justified exception).
+- [ ] No secrets in the bundle or in the source maps in production.
+- [ ] The security headers are set.
+- [ ] SRI for the third-party assets.
+- [ ] WCAG 2.2 AA (automated and manual).
+- [ ] The error, the loading, and the empty states.
+- [ ] The performance budgets.
+- [ ] The browser matrix tested.
+- [ ] The server re-validates all the inputs.

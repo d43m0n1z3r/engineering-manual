@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Reformatted all files in `checklists/` so each checklist item renders as
+  its own Markdown line (previously multiple `- [ ]` items were crammed onto
+  single lines and rendered as run-on text in previews).
+
 ## [1.2.0] - 2026-11-27
 
 ### Added

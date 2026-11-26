@@ -12,10 +12,24 @@
 - [ ] Agent memory updated: the Graphify graph refreshed (`graphify . --update` or the configured hook) when Graphify is configured — in addition to the ledger.
 
 ## 18.2 Code-change DoD
-- [ ] Acceptance criteria pass (positive, negative, abuse). [ ] Unit and integration tests are added or updated, and the coverage thresholds are met. [ ] SAST, SCA, and the secret scan show 0 new High or Critical. [ ] The input validation, the output encoding, the authZ, and the error handling are verified. [ ] The logging does not leak the sensitive data. [ ] The contract and the docs are updated. [ ] The migration is backward-compatible. [ ] The independent review is approved (G5). [ ] The CI is green.
+- [ ] Acceptance criteria pass (positive, negative, abuse).
+- [ ] Unit and integration tests are added or updated, and the coverage thresholds are met.
+- [ ] SAST, SCA, and the secret scan show 0 new High or Critical.
+- [ ] The input validation, the output encoding, the authZ, and the error handling are verified.
+- [ ] The logging does not leak the sensitive data.
+- [ ] The contract and the docs are updated.
+- [ ] The migration is backward-compatible.
+- [ ] The independent review is approved (G5).
+- [ ] The CI is green.
 
 ## 18.3 Feature (story) DoD
-- 18.2, plus: [ ] The acceptance criteria are demonstrated end to end. [ ] Accessibility checks pass (for the UI). [ ] The performance impact is measured against the budget. [ ] The telemetry (metrics, logs, traces, audit events) exists. [ ] The threat model delta is reviewed. [ ] The feature flag and the rollback are defined where applicable.
+18.2, plus:
+- [ ] The acceptance criteria are demonstrated end to end.
+- [ ] Accessibility checks pass (for the UI).
+- [ ] The performance impact is measured against the budget.
+- [ ] The telemetry (metrics, logs, traces, audit events) exists.
+- [ ] The threat model delta is reviewed.
+- [ ] The feature flag and the rollback are defined where applicable.
 
 ## 18.4 Phase DoD
 - All the phase tasks are `DONE`. The phase deliverables are produced and reviewed. The phase's gate is approved by the authority with the recorded decision. The RTM has no orphans for the phase. The risks and the assumptions are updated.

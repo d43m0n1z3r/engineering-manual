@@ -1,2 +1,13 @@
 ## 19.2 Architecture and threat-model checklist
-- [ ] The style was chosen with an ADR and the alternatives. [ ] No unjustified complexity. [ ] The modules have a single responsibility and acyclic dependencies. [ ] Data ownership is per module. [ ] The failure modes are analyzed, and the SPOFs are handled. [ ] RTO and RPO are set. [ ] The trust boundaries and the DFDs are drawn. [ ] STRIDE (and the privacy) analysis is complete. [ ] Centralized deny-by-default authZ. [ ] The secrets and the key management are designed. [ ] The audit logging is designed. [ ] Each High or Critical threat maps to a control and a test.
+- [ ] The style was chosen with an ADR and the alternatives.
+- [ ] No unjustified complexity.
+- [ ] The modules have a single responsibility and acyclic dependencies.
+- [ ] Data ownership is per module.
+- [ ] The failure modes are analyzed, and the SPOFs are handled.
+- [ ] RTO and RPO are set.
+- [ ] The trust boundaries and the DFDs are drawn.
+- [ ] STRIDE (and the privacy) analysis is complete.
+- [ ] Centralized deny-by-default authZ.
+- [ ] The secrets and the key management are designed.
+- [ ] The audit logging is designed.
+- [ ] Each High or Critical threat maps to a control and a test.

@@ -1,2 +1,14 @@
 ## 19.5 Backend and API checklist
-- [ ] The contract is linted, and it matches the implementation. [ ] Every endpoint has the declared authN and authZ. [ ] The authZ matrix tests pass. [ ] The password hashing (Argon2id or the approved alternative). [ ] The session or the token lifecycle is correct. [ ] The rate limits and the size and time limits. [ ] The standard error model with no internals. [ ] The structured logs with no sensitive data. [ ] The SSRF and the upload defenses. [ ] The idempotency for the unsafe operations. [ ] The background jobs are idempotent with the DLQ. [ ] The third-party calls have the timeouts and the circuit breakers. [ ] The webhooks verify the signatures.
+- [ ] The contract is linted, and it matches the implementation.
+- [ ] Every endpoint has the declared authN and authZ.
+- [ ] The authZ matrix tests pass.
+- [ ] The password hashing (Argon2id or the approved alternative).
+- [ ] The session or the token lifecycle is correct.
+- [ ] The rate limits and the size and time limits.
+- [ ] The standard error model with no internals.
+- [ ] The structured logs with no sensitive data.
+- [ ] The SSRF and the upload defenses.
+- [ ] The idempotency for the unsafe operations.
+- [ ] The background jobs are idempotent with the DLQ.
+- [ ] The third-party calls have the timeouts and the circuit breakers.
+- [ ] The webhooks verify the signatures.

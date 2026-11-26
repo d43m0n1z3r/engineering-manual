@@ -1,2 +1,13 @@
 ## 19.7 Security validation checklist
-- [ ] SAST, SCA, secrets, IaC, container, and DAST results are current for the digest. [ ] The scan coverage and its limits are documented. [ ] The seeded-defect check shows that the tools detect. [ ] The RoE is signed for any active testing. [ ] The ASVS checklist is complete for the level. [ ] The authZ and the multi-tenant isolation are tested. [ ] The findings are triaged with the CWE and the CVSS. [ ] Every fix has been retested. [ ] The risk acceptances are signed and have the expiry. [ ] The detections are tested. [ ] The IR plan was exercised. [ ] The SBOM is produced.
+- [ ] SAST, SCA, secrets, IaC, container, and DAST results are current for the digest.
+- [ ] The scan coverage and its limits are documented.
+- [ ] The seeded-defect check shows that the tools detect.
+- [ ] The RoE is signed for any active testing.
+- [ ] The ASVS checklist is complete for the level.
+- [ ] The authZ and the multi-tenant isolation are tested.
+- [ ] The findings are triaged with the CWE and the CVSS.
+- [ ] Every fix has been retested.
+- [ ] The risk acceptances are signed and have the expiry.
+- [ ] The detections are tested.
+- [ ] The IR plan was exercised.
+- [ ] The SBOM is produced.
