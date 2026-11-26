@@ -1,0 +1,2 @@
+## 19.1 Requirements checklist
+- [ ] Problem statement and the measurable outcomes. [ ] Stakeholders and the approvers identified. [ ] Every requirement is atomic, testable, ID'd, and prioritized. [ ] All NFRs are quantified. [ ] The acceptance criteria include the negative and the abuse cases. [ ] The scope and the out-of-scope lists. [ ] The assumptions have owners. [ ] The data is classified, and the inventory exists. [ ] The regulatory applicability was flagged to the humans. [ ] The ASVS level was chosen. [ ] The risk register exists.

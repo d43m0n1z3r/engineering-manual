@@ -1,0 +1,2 @@
+## 19.9 Operations checklist
+- [ ] The SLOs and the alerts are active, and tested. [ ] The security detections are active, and tested. [ ] The backups are verified on the schedule. [ ] The patching meets the SLA. [ ] The certificates have the expiry alerts. [ ] The access review is current. [ ] The runbooks were dry-run. [ ] The capacity headroom is within the policy. [ ] The debt register is reviewed.

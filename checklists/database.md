@@ -1,0 +1,2 @@
+## 19.6 Database checklist
+- [ ] The ERD matches the schema. [ ] The constraints enforce the integrity. [ ] The migrations are versioned, tested, and backward-compatible. [ ] The runtime account has no DDL. [ ] The TLS is enforced, and the encryption at rest is enabled. [ ] The Restricted fields use the field-level encryption. [ ] The non-production data is synthetic or masked. [ ] The audit logging is enabled. [ ] A backup restore was tested (the RTO and RPO measured). [ ] The retention and the deletion were tested. [ ] The slow-query review is complete.
