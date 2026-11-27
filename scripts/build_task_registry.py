@@ -303,8 +303,9 @@ def main() -> int:
     order = {pid: i for i, pid in enumerate(PHASE_ORDER)}
     tasks.sort(key=lambda t: (order[t["phase"]], t["id"]))
 
+    manual_version = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8")).get("manual_version", "0.0.0")
     registry = {
-        "version": "1.3.0",
+        "version": manual_version,
         "generated_by": "scripts/build_task_registry.py",
         "generated_from": "workflow/**/tasks/*.md plus curated orchestration metadata in this script",
         "semantics": {

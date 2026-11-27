@@ -27,9 +27,24 @@ Read this file and [INDEX.md](INDEX.md) before starting work.
     endpoints as untrusted attack surface (see the
     [agent ecosystem threat model](agents/agent-threat-model.md)). Do not send
     secrets or Restricted data to them without the applicable approval.
+13. When asked for a commit message, treat it as a release request: bump
+    `manifest.json` `manual_version`, update version references, keep
+    `workflow/task-registry.json` in sync, move `[Unreleased]` entries into a
+    dated `CHANGELOG.md` section, run the manual checks, then provide the
+    message — unless the user explicitly says not to version or changelog.
 
 Read the full [non-negotiables](core/01-non-negotiables.md) and
 [evidence standard](core/04-evidence-standard.md) when they apply.
+
+## Commit-message requests
+
+Before providing a commit message, perform the release bookkeeping unless the
+user opts out: choose the next semantic version (patch for fixes/docs, minor
+for features, major for breaking changes), bump `manifest.json` `manual_version`,
+update the README badge/version references, regenerate `workflow/task-registry.json`,
+move `[Unreleased]` entries into a dated `CHANGELOG.md` section, run
+`python3 scripts/check_manual.py` and `python3 scripts/build_task_registry.py --check`,
+then provide the commit message.
 
 ## Start a task
 

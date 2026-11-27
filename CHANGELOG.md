@@ -9,7 +9,7 @@ sibling directories (`engineering-manual-X.Y.Z/`).
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.3.0] - 2026-11-27
 
 ### Added
 
@@ -33,10 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
     dependency note pointing to the machine-readable registry.
   - `scripts/task_readiness.py` for deterministic READY-task computation.
   - `source/README.md` clarifying frozen provenance.
-
-## [1.3.0] - 2026-11-27
-
-### Added
 
 - Agent ecosystem threat model and controls for agent skills, MCP servers,
   plugins, hooks, tool-output poisoning, confused deputy actions, data egress
