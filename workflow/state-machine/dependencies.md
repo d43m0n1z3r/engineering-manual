@@ -17,3 +17,11 @@
 | P09-T05 | P09-T01..T04 | G9 | P09-T06 |
 | P10 | | G10 | P11 |
 | P11 | Operational data | | New cycle |
+
+## Machine-readable orchestration
+
+`workflow/task-registry.json` is the authoritative machine-readable task graph
+for scheduling. This table remains the human-readable dependency summary. Regenerate
+the registry with `scripts/build_task_registry.py` after changing task cards or
+curated orchestration metadata; run `scripts/task_readiness.py` to compute READY
+tasks from verified dependencies and approved gates.

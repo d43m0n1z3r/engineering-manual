@@ -30,15 +30,20 @@
 - **Task ID format:** `P{phase}-T{nn}`, for example `P04-T04`. Cross-cutting tasks use `X-{name}`.
 - **Gate ID format:** `G{n}`, defined in Part 10.
 - **Requirement ID format:** `REQ-F-###` (functional), `REQ-N-###` (non-functional), `REQ-S-###` (security), `REQ-P-###` (privacy).
-- **Other IDs:** `THR-###` (threat), `ADR-###` (decision), `TC-###` (test case), `VULN-###` (vulnerability), `RISK-###` (risk), `EVD-###` (evidence).
-- **Inheritance rule:** Each phase section states Skills, Tools, Security considerations, Failure handling, and Transition once. All tasks in the phase inherit them unless a task overrides them. Part 8 defines the full 14-field task schema and gives two fully expanded examples. Agents MUST instantiate the full schema (Part 17) when they create a work item.
+- **Other IDs:** `THR-###` (threat), `ADR-###` (decision), `TC-###` (test case), `VULN-###` (vulnerability), `RISK-###` (risk), `EVD-###` (evidence), `MSG-###` (inter-agent message), `TOOL-###` (agent tooling register entry).
+- **Inheritance rule:** Each phase section states Skills, Tools, Security considerations, Failure handling, and Transition once. All tasks in the phase inherit them unless a task overrides them. Part 8 defines the full 14-field task schema and gives two fully expanded examples. Agents MUST instantiate the full schema when they create a work item.
+
+## Document control
+
+Every controlled document SHOULD carry: owner, version, status, last-reviewed
+date, classification, and linked requirement/decision IDs. Living docs (runbooks,
+ledgers) update continuously; versioned docs (ADRs, assessments, releases) are
+immutable after approval and superseded by new versions.
 
 ## 0.3 Scope, assumptions, and limits of this manual
 
 1. **Technology-agnostic.** Named tools are examples. The Architect selects tools through the decision procedure in Part 6.
-2. **Versions.** This manual was written without live access to the internet. Any version-specific claim (standard editions, framework versions, algorithm parameters, CVE status) MUST be verified against the authoritative source at the time of use. The agent MUST record the verification in the ADR or task evidence.
+2. **Versions.** Any version-specific claim (standard editions, framework versions, algorithm parameters, CVE status) MUST be verified against the authoritative source at the time of use. The agent MUST record the verification in the ADR or task evidence.
 3. **Thresholds are defaults.** Numeric thresholds (coverage, SLAs, and so on) are defensible defaults. A project MAY change them only through an ADR approved at the relevant gate. It MUST NOT silently lower them.
 4. **Not legal advice.** Regulatory applicability (GDPR, HIPAA, PCI DSS, and others) MUST be confirmed by a qualified human. Agents flag it but do not decide it.
 5. **Missing information.** If a required input is missing, the agent MUST (a) list what is missing, (b) state its assumptions explicitly in the Assumptions Log, (c) ask for clarification when the assumption is high-impact, and (d) never proceed on an assumption that affects security, data handling, or cost without human confirmation.
-
----

@@ -29,8 +29,13 @@ The [task index](TASKS.md) lists generated task cards.
 | Requesting a handoff | [Handoff protocol](agents/protocol/06-handoff.md) |
 | Human approval | [Human approval matrix](agents/protocol/08-human-approval.md) |
 | Offensive security work | [Offensive security](workflow/phases/06-security/B-offensive-security.md) and [RoE template](templates/roe.md) |
-| Agent tooling, MCP servers, or external model/tool endpoints | [Agent ecosystem threat model](agents/agent-threat-model.md) and [human approval matrix](agents/protocol/08-human-approval.md) |
-| Gate review | Relevant file under [workflow/gates/](workflow/gates/) |
+| Agent tooling, MCP servers, plugins, or external model/tool endpoints | [Agent ecosystem threat model](agents/agent-threat-model.md), [tooling governance](agents/tooling-governance.md), [agent ecosystem checklist](checklists/agent-ecosystem.md), and [human approval matrix](agents/protocol/08-human-approval.md) |
+| Agent operating model or escalation | [Operating model](agents/operating-model.md), [permission tiers](agents/permission-tiers.md), [human authorities](agents/human-authorities.md) |
+| Gate review | [Gate review procedure](workflow/gates/review-procedure.md), [gate dossier checklist](checklists/gate-dossier.md), relevant file under [workflow/gates/](workflow/gates/) |
+| Orchestration or READY computation | [Orchestration runbook](workflow/state-machine/orchestration-runbook.md), [task registry](workflow/task-registry.json), [task_readiness.py](scripts/task_readiness.py) |
+| Agent fleet operations | [Agent operations standard](standards/operations/agent-operations.md) |
+| Supply chain, SBOM, signing, provenance | [Supply chain standard](standards/cicd/supply-chain.md), [supply-chain checklist](checklists/supply-chain.md) |
+| Data protection or external egress | [Data classification](core/03-classifications.md), [data-protection checklist](checklists/data-protection.md) |
 | Choosing technology | [Selection procedure](tools/selection-procedure.md) and [landscape](tools/landscape.md) |
 | Security finding | [Vulnerability template](templates/vulnerability.md) |
 | Incident | [Incident response](standards/operations/incident-response.md) |
@@ -41,28 +46,29 @@ The [task index](TASKS.md) lists generated task cards.
 | Ledger initialization | [Ledger template](ledger-template/README.md) and [X-KICKOFF-T03](workflow/kickoff/tasks/X-KICKOFF-T03.md) |
 | Definition of done | [Definition of Done](checklists/definition-of-done.md) |
 | CI/CD architecture | [Pipeline architecture](standards/cicd/pipeline-architecture.md) |
-| Agent capability validation | [Role skill minimums](skills/role-minimums.md) and the Agent Capability Register in [documentation standard](standards/documentation.md) |
+| Agent capability validation | [Role skill minimums](skills/role-minimums.md), [assessment rubric](skills/assessment-rubric.md), and the Agent Capability Register in [documentation standard](standards/documentation.md) |
 | Template coverage | [Template catalog](templates/README.md) |
-| Task orchestration | [Task registry](workflow/task-registry.json), [registry doc](workflow/task-registry.md), [dependencies](workflow/state-machine/dependencies.md) |
-| Repository consistency checks | [check_manual.py](scripts/check_manual.py), [build_task_registry.py](scripts/build_task_registry.py), [scripts README](scripts/README.md) |
+| Task orchestration | [Task registry](workflow/task-registry.json), [registry doc](workflow/task-registry.md), [dependencies](workflow/state-machine/dependencies.md), [orchestration runbook](workflow/state-machine/orchestration-runbook.md) |
+| Repository consistency checks | [check_manual.py](scripts/check_manual.py), [build_task_registry.py](scripts/build_task_registry.py), [task_readiness.py](scripts/task_readiness.py), [scripts README](scripts/README.md) |
+| Source provenance | [source/README.md](source/README.md), [manifest.json](manifest.json), [REPORT.md](REPORT.md) |
 | Manual amendments and governance | [CONTRIBUTING.md](CONTRIBUTING.md), [AMENDMENT-PROCESS.md](AMENDMENT-PROCESS.md), [CHANGELOG.md](CHANGELOG.md) |
 
 ## Directory map
 
 | Directory | Purpose |
 |---|---|
-| `core/` | Non-negotiables, principles, classifications, evidence |
-| `workflow/` | SDLC phases, task cards, gates, dependencies, and the task registry |
-| `agents/` | Roles, permissions, human authorities, agent threat model, execution protocol |
-| `skills/` | Competency taxonomy and proficiency levels |
-| `standards/` | Testing, CI/CD, operations, documentation, improvement |
+| `core/` | Non-negotiables, principles, classifications, evidence, document control |
+| `workflow/` | SDLC phases, task cards, gates, dependencies, state machine, orchestration, and the task registry |
+| `agents/` | Roles, permissions, human authorities, operating model, tooling governance, agent threat model, execution protocol |
+| `skills/` | Competency taxonomy, proficiency levels, assessment rubric, and role minimums |
+| `standards/` | Testing, CI/CD, operations, documentation, improvement, supply chain, agent operations |
 | `tools/` | Technology and tool selection |
 | `templates/` | Reusable evidence, RoE, incident, ADR, CCR, and other templates |
-| `checklists/` | Definitions of done and engineering checklists |
+| `checklists/` | Definitions of done and engineering checklists, including agent ecosystem, gate dossier, supply chain, and data protection |
 | `ledger-template/` | Starter project state and traceability files |
-| `scripts/` | Consistency checks and the task-registry generator |
+| `scripts/` | Consistency checks, task registry generator, and readiness helper |
 | `.github/` | CI workflow for manual checks |
-| `source/` | Frozen original generation input |
+| `source/` | Frozen original generation input and provenance note |
 | `XREF.md` | Map of original numbered sections to generated files |
 
 ## Original references

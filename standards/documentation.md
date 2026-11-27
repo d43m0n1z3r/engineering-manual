@@ -27,3 +27,14 @@
 4. State the **why**, not only the what.
 5. A documented procedure is **executable**: the commands are copy-pastable, and the expected outputs are shown. Docs that refer to secrets never contain them.
 6. Documents containing the vulnerability details or the sensitive architecture are access-restricted.
+
+## Documentation for agents and automation
+
+- Prefer machine-readable sources (registries, JSON/YAML schemas) for operational
+  data; keep prose docs for rationale and procedure.
+- Task cards, ledgers, and checklists must be consistent with
+  `workflow/task-registry.json`; run `scripts/check_manual.py` after changes.
+- Docs must not embed secrets, Restricted data, or unapproved external endpoints.
+- Mark assumptions, limitations, and "reported, not evidenced" items explicitly.
+- When docs conflict with code or registry, fix the doc or record a CCR; do not
+  let agents guess.

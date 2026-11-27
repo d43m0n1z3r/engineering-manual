@@ -23,3 +23,25 @@
 | Cost efficiency | 8% | License, infrastructure, and staffing cost |
 
 **Procedure.** (1) Adjust the weights with the stakeholders (the sum is 100%). (2) Score 1–5 per criterion using **evidence**, not impression. (3) Compute the weighted score. (4) Run a sensitivity check (does the winner change if the weights shift by ±5 points?). (5) Run a proof-of-concept on the top two if the scores are within about 10%. (6) Record the ADR. An unverified score MUST be marked "assumed".
+
+## Score evidence and anti-patterns
+
+- Each score needs a source: docs, benchmark, advisory history, license text,
+  PoC result, or maintainer evidence. Record the source and date.
+- Do not score on popularity alone; verify maintenance, security history, and
+  operational fit.
+- Anti-patterns: choosing because it is trendy, ignoring exit cost, accepting
+  an unmaintained dependency, or letting the tool drive the requirement.
+
+## Proof-of-concept protocol
+
+For close candidates, define before running: question to answer, success
+criteria, time box, environment, data classification, rollback, and evidence to
+capture. A PoC is not production approval; record limitations and follow-up
+work.
+
+## ADR fields for selection
+
+Record: context and requirement IDs, options considered, scoring matrix and
+sources, PoC results, decision, consequences, exit/lock-in strategy, security
+and privacy impact, approval, and review date.

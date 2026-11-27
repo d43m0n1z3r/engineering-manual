@@ -3,13 +3,17 @@
 - Project:
 - Current phase:
 - Current release or increment:
-- Last updated:
+- Process profile:
+- Last updated (UTC):
 - Owner:
 
 ## Gates
 
-| Gate | Status | Evidence | Approver | Date |
-|---|---|---|---|---|
+| Gate | Status | Evidence | Approver | Date (UTC) | Notes |
+|---|---|---|---|---|---|
+
+Status values: NOT_STARTED, READY, IN_REVIEW, APPROVED, CONDITIONAL, REJECTED,
+WAIVED (time-boxed), BLOCKED.
 
 ## Tasks
 
@@ -21,5 +25,16 @@ DONE, FAILED, ESCALATED, CANCELLED.
 
 ## Blockers
 
-| ID | Description | Owner | Escalation | Status |
-|---|---|---|---|---|
+| ID | Description | Owner | Escalation | Status | Since (UTC) |
+|---|---|---|---|---|---|
+
+## Active approvals and access
+
+| ID | Type | Scope | Approver | Expires (UTC) | Status |
+|---|---|---|---|---|---|
+
+## Notes
+
+- Update this file on every state change; do not batch stale updates.
+- VERIFIED/DONE require evidence; IN_REVIEW requires submitted evidence.
+- Record unapproved waiver requests here as BLOCKED deviations.

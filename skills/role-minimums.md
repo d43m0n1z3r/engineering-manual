@@ -17,6 +17,13 @@ Levels refer to the Part 5 proficiency scale. Entries name the skill category
 | QA Engineer | Cat 21 test design and test automation L4; Cat 21 non-functional testing L4; Cat 14 security testing basics L3 |
 | Technical Reviewer | Cat 4 software engineering principles L4; Cat 14 application security L3; Cat 23 technical writing L4; plus breadth L3 across the stack in use |
 
-**Competency validation procedure for agents.** Before an agent is assigned a role, run the *LAB/SEED/TC* validations against a sandbox project with seeded defects and known-answer tests. Record the results in the Agent Capability Register. Any agent failing a validation operates in a supervised mode (outputs reviewed by a higher-level agent or a human).
+## Validation evidence
 
----
+Before an agent is assigned a role, run the *LAB/SEED/TC* validations against a
+sandbox project with seeded defects and known-answer tests. Record the results
+in the Agent Capability Register using [assessment-rubric.md](assessment-rubric.md).
+Any agent failing a validation operates in supervised mode (outputs reviewed by
+a higher-level agent or a human) until re-assessed.
+
+Register fields: agent/role, skill category/row, claimed level, validation
+method, artifact/exercise ID, date, validator, result, limitations, next review.

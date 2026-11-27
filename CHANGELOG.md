@@ -11,6 +11,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Deep specification pass across agents, checklists, core, ledger template,
+  skills, standards, tools, workflow, scripts, and source provenance:
+  - `agents/operating-model.md` and `agents/tooling-governance.md` for agent
+    roles, permissions, MCP/plugin/hook vetting, egress, and change detection.
+  - Expanded agent threat model, permission tiers, human authorities, protocol
+    dependency/approval/logging/parallelization/prohibited-behavior detail.
+  - New checklists for agent ecosystem, gate dossier, ledger integrity, supply
+    chain, and data protection; expanded checklist index and usage rules.
+  - Expanded data classification/handling, evidence storage/retention/integrity,
+    document control, and non-negotiable interpretation notes.
+  - Ledger template registers and READMEs now include status values, ID formats,
+    review rules, and restricted-storage handling.
+  - `skills/assessment-rubric.md` plus expanded skills README and role-minimums
+    validation evidence requirements.
+  - `standards/cicd/supply-chain.md` and `standards/operations/agent-operations.md`;
+    expanded security validation methods for agentic/MCP/data-egress risks.
+  - `workflow/gates/review-procedure.md` and `workflow/state-machine/orchestration-runbook.md`;
+    dependency note pointing to the machine-readable registry.
+  - `scripts/task_readiness.py` for deterministic READY-task computation.
+  - `source/README.md` clarifying frozen provenance.
+
 ## [1.3.0] - 2026-11-27
 
 ### Added

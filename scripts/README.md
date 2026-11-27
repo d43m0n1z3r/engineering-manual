@@ -10,6 +10,11 @@ Stdlib-only Python 3 helpers for keeping the manual consistent.
   links, task cards and task-table consistency, `§` references through `XREF.md`,
   registry schema/references/cycles, checklist run-on items, and obvious secret
   patterns. Run `python3 scripts/check_manual.py`.
+- `task_readiness.py` computes READY tasks from `workflow/task-registry.json`
+  given verified/claimed task IDs and approved gates. Example:
+  `python3 scripts/task_readiness.py --verified P01-T09 --approved-gates G0,G1`.
+  It is deterministic scheduling support, not a replacement for ledger state or
+  human approvals.
 
 ## Derived artifacts
 

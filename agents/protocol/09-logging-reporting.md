@@ -3,21 +3,39 @@
 Each action that changes state is logged in an append-only structured record:
 
 ```json
-{"ts":"...","agent":"backend-agent-2","task":"P04-T04","action":"run_tests",
- "command":"<redacted-safe command>","result":"pass","evidence":"EVD-0210",
- "commit":"abc123","permission_tier":"T1","notes":""}
+{"ts":"2026-01-01T00:00:00Z","agent":"backend-agent-2","task":"P04-T04",
+ "action":"run_tests","command":"<redacted-safe command>","result":"pass",
+ "evidence":"EVD-0210","commit":"abc123","permission_tier":"T1",
+ "tool":"ci-runner","tool_version":"2026.1","data_class":"Internal",
+ "approval_ref":"","notes":""}
 ```
 
-Timestamps are UTC ISO-8601. Logs MUST NOT contain secrets or personal data. They record *decisions and reasons* as well as actions, so that a reviewer can reconstruct the "why".
+Required fields: `ts` (UTC ISO-8601), `agent`, `task`, `action`, `result`.
+Recommended: `command` (redacted), `evidence`, `commit`, `permission_tier`,
+`tool`, `tool_version`, `data_class`, `approval_ref`, `notes`.
+
+Rules:
+
+- Logs MUST NOT contain secrets, tokens, credentials, or unnecessary personal
+  data. Redact before writing.
+- Logs record decisions and reasons, not only commands, so a reviewer can
+  reconstruct the "why".
+- High-assurance logs SHOULD be integrity-protected (hash-chained, exported to
+  tamper-evident storage, or anchored to VCS).
+- Retain logs per project policy and gate/release requirements; do not delete
+  logs to make a result look cleaner.
 
 ## 8.13 Progress reporting
 
 | Report | Frequency | Content |
 |---|---|---|
-| Task status update | On each state change | State, the blockers, and the evidence |
-| Daily or iteration digest | Daily or per iteration | The completed (verified) tasks, in-progress, blocked, the risks, and the next 24–48 h |
-| Gate dossier | At each gate | The evidence index, the criteria checklist with pass or fail, the waivers, and the open risks |
-| Risk and vulnerability summary | Weekly | New and closed, and the SLA status |
-| Metrics report | Per release | The DORA metrics, the escaped defects, the coverage, and the vulnerability age |
+| Task status update | On each state change | State, blockers, evidence |
+| Daily or iteration digest | Daily or per iteration | Verified tasks, in-progress, blocked, risks, next 24–48 h |
+| Gate dossier | At each gate | Evidence index, criteria checklist pass/fail, waivers, open risks |
+| Risk and vulnerability summary | Weekly | New/closed, SLA status, aging |
+| Metrics report | Per release | DORA metrics, escaped defects, coverage, vulnerability age |
+| Agent/tooling report | On tooling change or weekly | Tooling Register changes, approvals, egress calls, anomalies |
 
-**Honesty rule.** Reports distinguish: *Verified* (evidence), *Done-unverified* (completed, awaiting review), *Assumed* (not tested), and *Not done*. A report must never use "should work" or "likely fine" as a status.
+**Honesty rule.** Reports distinguish: *Verified* (evidence), *Done-unverified*
+(completed, awaiting review), *Assumed* (not tested), and *Not done*. Never use
+"should work" or "likely fine" as a status.
